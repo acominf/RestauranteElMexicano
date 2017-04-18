@@ -1,4 +1,23 @@
 
-body{
-  background-image: url("fondo-web.jpg");
+body {
+  background-image: url("fondoPagina.jpg");
+}
+
+#contenedor {
+  width: 1000px;
+  height: 1000px;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  margin: 0 auto;
+  background-color: white;
+}
+
+.caja {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  padding: 10px;
+  border: 10px;
+  background-color:red;
 }
