@@ -4,6 +4,56 @@ body {
   background-image: url("fondoPrincipal.jpg");
 }
 
+/*Codigo nuevo agregado para el menu*/
+* {
+  padding: 0;
+  margin: 0;
+  
+}
+header nav{
+ 
+ background:#3498db;
+ margin-bottom:10px;
+
+}
+header nav ul{
+ 
+ list-style: none;
+ overflow: hidden;
+
+}
+
+header nav ul li{
+ 
+ float: left;
+
+}
+
+
+header nav ul li a {
+    
+    display: block;
+    padding: 20px;
+    color:#fff;
+    text-decoration: none;
+}
+
+header nav ul li a:hover {
+  
+  background: seagreen;
+
+}
+
+.contenedorMenu {
+ 
+    width: 95%;
+    max-width: 1000px;
+    margin:auto;
+
+}
+
+/*Hasta este punto llega el codigo del menu*/
+
 #contenedor {
   width: 1000px;
   height: 2000px;
