@@ -8,30 +8,23 @@ body {
 * {
   padding: 0;
   margin: 0;
-  
 }
+
 header nav{
- 
  background:#3498db;
  margin-bottom:10px;
-
 }
+
 header nav ul{
- 
  list-style: none;
  overflow: hidden;
-
 }
 
 header nav ul li{
- 
  float: left;
-
 }
 
-
 header nav ul li a {
-    
     display: block;
     padding: 20px;
     color:#fff;
@@ -39,17 +32,13 @@ header nav ul li a {
 }
 
 header nav ul li a:hover {
-  
   background: seagreen;
-
 }
 
 .contenedorMenu {
- 
     width: 95%;
     max-width: 1000px;
     margin:auto;
-
 }
 
 /*Hasta este punto llega el codigo del menu*/
@@ -57,12 +46,12 @@ header nav ul li a:hover {
 #contenedor {
   width: 1000px;
   height: 2000px;
-  margin: 10px;
+  /*margin: 10px;*/
   padding: 10px;
   border: 10px;
-  margin: 0 auto;
+  margin: auto;
   background-color: white;
-  opacity: 0.7;
+  /*opacity: 0.7;*/
 }
 
 .caja {
@@ -82,3 +71,5 @@ header nav ul li a:hover {
 
   background-color:green;
 }
+
+
