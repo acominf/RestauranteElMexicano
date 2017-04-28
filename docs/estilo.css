@@ -1,75 +1,59 @@
-
-
 body {
-  background-image: url("fondoPrincipal.jpg");
+  /*background-image: url("fondoPrincipal.jpg");*/
+  background-color: grey;
 }
 
-/*Codigo nuevo agregado para el menu*/
-* {
-  padding: 0;
-  margin: 0;
-}
-
-header nav{
- background:#3498db;
- margin-bottom:10px;
-}
-
-header nav ul{
- list-style: none;
- overflow: hidden;
-}
-
-header nav ul li{
- float: left;
-}
-
-header nav ul li a {
-    display: block;
-    padding: 20px;
-    color:#fff;
-    text-decoration: none;
-}
-
-header nav ul li a:hover {
-  background: seagreen;
-}
-
-.contenedorMenu {
-    width: 95%;
-    max-width: 1000px;
-    margin:auto;
-}
-
-/*Hasta este punto llega el codigo del menu*/
-
-#contenedor {
-  width: 1000px;
-  height: 2000px;
-  /*margin: 10px;*/
-  padding: 10px;
-  border: 10px;
+.contenedor {
+  height: 1000px;
+  max-width: 1000px;
+  width: 95%;
   margin: auto;
-  background-color: white;
-  /*opacity: 0.7;*/
+  background-color: lightblue;
 }
 
-.caja {
-  width: 200px;
-  height: 150px;
-
-  margin-top:  10px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-left: 10px;
-
-  padding: 2px;
-  
-  border-color: black;
-  border-width: 1px;
-  border-style: solid;
-
-  background-color:green;
+/*El header contiene el logo y el menu. */
+.contenedorMenu {
+	width: 80%;/*Para que oucpe solo el 95% del tamaño total.*/
+	max-width:1000px; /*Tamaño total*/
+	margin:auto;/*margen centrado*/
 }
-
-
+ 
+.contenedorMenu p {
+	margin-bottom:40px; /*Establecer el margen superior del elemento <p>*/
+}
+ 
+header nav {
+	background:black;
+	margin-bottom: 10px; /*Establecer el margen superior del elemento <nav>*/
+}
+ 
+header nav ul {
+	list-style: none; /*Quite los estilos de la lista (qiute las viñetas)*/
+	overflow: hidden; /*El desbordamiento se recorta, y el resto del contenido será invisible*/
+}
+ 
+header nav ul li {
+	float: left; /*Lo colocamos ala izquierda*/
+}
+ 
+header nav ul li a {
+	display: block; /*Muestra un elemento como un elemento de bloque*/
+	padding: 20px; /*Eespacio alrededor del contenedor */
+	color:#fff; /*Ccolor de la letra*/
+	/*text-decoration: none;*/
+  font-family: Arial, Helvetica, sans-serif;
+}
+ 
+header nav ul li a:hover {
+	background:#2980b9; /*Fondo para cuando seleccionemos un parte del menu*/
+}
+ 
+/*Clase que agregaremos cuando el usuario haga scroll*/
+.menu-fixed {
+	position:fixed;
+	z-index:1000;
+	top:0;
+	max-width:1000px;
+	width:95%;
+	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
