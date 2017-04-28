@@ -3,8 +3,12 @@ body {
   background-color: grey;
 }
 
+.logo {
+	padding-top: 5px;
+}
+
 .contenedor {
-  height: 1000px;
+  height: 2000px;
   max-width: 1000px;
   width: 95%;
   margin: auto;
@@ -13,13 +17,9 @@ body {
 
 /*El header contiene el logo y el menu. */
 .contenedorMenu {
-	width: 80%;/*Para que oucpe solo el 95% del tamaño total.*/
+	width: 90%;/*Para que oucpe solo el 95% del tamaño total.*/
 	max-width:1000px; /*Tamaño total*/
 	margin:auto;/*margen centrado*/
-}
- 
-.contenedorMenu p {
-	margin-bottom:40px; /*Establecer el margen superior del elemento <p>*/
 }
  
 header nav {
@@ -40,8 +40,8 @@ header nav ul li a {
 	display: block; /*Muestra un elemento como un elemento de bloque*/
 	padding: 20px; /*Eespacio alrededor del contenedor */
 	color:#fff; /*Ccolor de la letra*/
-	/*text-decoration: none;*/
-  font-family: Arial, Helvetica, sans-serif;
+	text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
  
 header nav ul li a:hover {
@@ -53,7 +53,11 @@ header nav ul li a:hover {
 	position:fixed;
 	z-index:1000;
 	top:0;
+	width: 71.5%;
 	max-width:1000px;
-	width:95%;
 	box-shadow:0px 4px 3px rgba(0,0,0,.5);
+}
+
+.menu-fixed ul li a {
+	padding: 15px 20px;
 }
