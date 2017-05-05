@@ -21,7 +21,8 @@ body {
   max-width: 1000px;
   width: 95%;
   margin: auto;
-  background-color: lightblue;
+  /*background-color: lightblue;*/
+  background-color: white;
 }
 
 .contenedor p {
@@ -70,40 +71,52 @@ header nav ul li a:hover {
 	max-width:1000px; /*Tamaño total*/
 	box-shadow:0px 4px 3px rgba(0,0,0,.5);
 }
-
+/*Crear cajas de diferentes tamaños*/
 .caja {
 width: 100%;
 max-width: 1000px;
 height: 30px;
 margin: auto;
-/*padding: 5px;
-padding: 10px;
-border: 1px solid;*/
 background-color: red;
 float: left;
 }
 
-.caja-tam45 {
+.caja-tam49 {
 	width: 49%;
 	max-width: 1000px;
-	height: 30px;
 	margin-top: 5px;
 	margin-left: 5px;
-	float: left;
+	/*float: left;*/
 }
 
-.caja-tam45 p {
+.caja-tam49 p {
 	padding: 5px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	text-align: center;
 	margin: 0px;
 }
+
+.bebidas {
+	margin-top: 40px;
+	height: 400px;
+}
+
+.bebidas p {
+	padding: 40px;
+	margin-top: 0px;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.colorGreen {
+	background-color: green;
+}
+
 
 /*Slider*/
 .slider {
 	width: 100%;
 	max-width: 1000px;
-	height: 400px;
+	height: 500px;
 	margin: auto;
 	overflow: hidden; /*Mascara*/
 }
