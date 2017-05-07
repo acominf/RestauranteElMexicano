@@ -78,7 +78,7 @@ width: 100%;
 max-width: 1000px;
 height: 30px;
 margin: auto;
-background-color: red;
+background-color:red;
 float: left;
 }
 
@@ -191,4 +191,34 @@ float: left;
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	background-image: url("cochinita-pibil.jpg");
+}
+.cH1,.cH2,.cH3,.cH4,.cH5,.cH6,.cH7,.cH8,.cH9,.cH10{
+   
+   width: 100%;
+   height: 5%;
+   border: 30px;
+   border: solid black;
+   background-color:cadetblue;
+   margin-bottom: 40px;
+   margin-left: 0px;
+
+
+}
+
+.imgP1, .imgP2, .imgP3,.imgP4,.imgP5,.imgP6 ,.imgP7,.imgP8,.imgP9,.imgP10{
+    width: 10%;
+    background-position-x: 80px;
+    background-position-y: 20px;
+    position: relative;
+    left: 10px;
+    top: 0px;
+}
+
+.descripcion1,.descripcion2,.descripcion3,.descripcion4,.descripcion5,.descripcion6,.descripcion7,.descripcion8,.descripcion9,.descripcion10{
+   
+    position: relative;
+    text-align: center;
+    left: 40px;
+    bottom:100px
+     
 }
