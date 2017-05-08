@@ -59,6 +59,40 @@ $(document).ready(function () {
                 }
             });
         });
+
+        //Para las imagenes que estan e la pagina principal.
+        $('#catalogo').click(function(){
+            //redireccionar a menu.html
+        });
+
+        $('#reserv').click(function(){
+            //redireccionar a servicios.html
+        });
+
+        $('#reserv').mouseenter(function(){
+
+        });
+
+        $('#catalogo').mouseenter(function(){
+        });
+
+        $('#reserv').mouseleave(function(){
+        });
+
+        $('#catalogo').mouseleave(function(){
+        });
+
+        //Para las imagenes del manu
+        $('#foto1').mouseenter(function(){
+            $(this).addClass('foto1Cambio');
+            $(this).css('background-image', 'url(enchiladas.jpg)');
+        });
+        
+        $('#foto1').mouseleave(function(){
+            //$(this).removeClass('foto1Cambio');
+            $(this).css('background-image', 'url(pozole.jpg)');
+        });
+
 });
 
   /*Logo principal situado en la parte de arriba. 
