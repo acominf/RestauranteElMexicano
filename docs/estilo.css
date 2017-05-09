@@ -180,16 +180,42 @@ float: left;
 	background-color: black;
 }
 
-#foto1 {
+.claseFotoCat {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
+}
+
+.foto1{
 	background-image: url("pozole.jpg");
 }
-#foto2 {
-	background-size: 100% 100%;
-	background-repeat: no-repeat;
+.foto2{
 	background-image: url("mole-poblano.jpg");
 }
+.foto3{
+	background-image: url("enchiladas.jpg");
+}
+.foto4{
+	background-image: url("COCHINITA_PIBIL_VIAJA_BONITO.jpg");
+}
+.foto5{
+	background-image: url("CHILES_EN_NOGADA_VIAJA_BONITO.jpg");
+}
+.foto6{
+	background-image: url("BARBACOA_VIAJA_BONITO.jpg");
+}
+.foto7{
+	background-image: url("TAMALES_VIAJA_BONITO.jpg");
+}
+.foto8{
+	background-image: url("TORTA_AHOGADA_VIAJA_BONITO.jpg");
+}
+.foto9{
+	background-image: url("PESCADO_ZARANDEADO_VIAJA_BONITO.jpg");
+}
+.foto10{
+	background-image: url("TACOS_VIAJA_BONITO.jpg");
+}
+
 
 .foto1Cambio {
 	/*background-color: white;*/
