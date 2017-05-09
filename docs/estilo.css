@@ -8,7 +8,7 @@
 
 body {
   /*background-image: url("fondoPrincipal.jpg");*/
-  background-color: white;
+  background-color:lightgoldenrodyellow;
 }
 
 .logo {
@@ -306,4 +306,22 @@ float: left;
     left: 40px;
     bottom:100px
      
+}
+
+.HistoriaDes{
+
+	text-align: justify;
+}
+
+.HistoriaDes{
+   
+   width: 100%;
+   height: 80%;
+   border: 30px;
+   border: solid black;
+   background-color:lightgrey;
+   margin-bottom: 50px;
+   margin-left: 0px;
+
+
 }
