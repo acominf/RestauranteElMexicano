@@ -7,14 +7,15 @@
 }
 
 body {
-  /*background-image: url("fondoPrincipal.jpg");*/
+  /*background-image: url("fondo-body.jpg");*/
   background-color:lightgoldenrodyellow;
 }
 
 .logo {
 	padding-top: 5px;
 	padding-left: 10px;
-	background-color: orangered;
+	/*background-color: orangered;*/
+   /*background: rgba(255, 0, 0, 0.5);*/
 }
 
 .contenedor {
@@ -23,7 +24,8 @@ body {
   width: 95%;
   margin: auto;
   /*background-color: lightblue;*/
-  background-color: white;
+  /* background-color: white;*/
+  /*background: rgb(240, 255, 255);*/
 }
 
 .contenedor p {
@@ -74,13 +76,41 @@ header nav ul li a:hover {
 }
 /*Crear cajas de diferentes tamaños*/
 .caja {
-width: 100%;
-max-width: 1000px;
-height: 30px;
-margin: auto;
-background-color:red;
-float: left;
+	width: 100%;
+	max-width: 1000px;
+	height: 30px;
+	margin: auto;
+	background-color:red;
+	float: left;
 }
+/*Cajas de pagina variedad*/
+.cajaVariedad {
+	height: 140px;
+}
+
+.cajaImagenVariedad {
+	width: 100px;
+	height: 100px;
+	margin: 20px;
+	margin-left: 30px;
+	float: left;
+	background-color: blue;
+}
+
+.cajaTextVar {
+	width: 800px;
+}
+
+.cajaTextVar p{
+	margin: 15px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.cajaTextVar h2 {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	text-align: center;
+}
+/*Fin de cajas variedad*/
 
 .caja-tam49 {
 	width: 49%;
