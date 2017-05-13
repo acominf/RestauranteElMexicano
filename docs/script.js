@@ -63,14 +63,15 @@ $(document).ready(function () {
         //Para las imagenes que estan e la pagina principal.
         $('#catalogo').click(function(){
             //redireccionar a menu.html
+            window.location.href = "menu.html";
         });
 
         $('#reserv').click(function(){
             //redireccionar a servicios.html
+            window.location.href = "servicios.html"
         });
 
         $('#reserv').mouseenter(function(){
-
         });
 
         $('#catalogo').mouseenter(function(){
