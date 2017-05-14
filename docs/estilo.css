@@ -8,7 +8,8 @@
 
 body {
   /*background-image: url("fondo-body.jpg");*/
-  background-color:lightgoldenrodyellow;
+  /*background-color:lightgoldenrodyellow;*/
+  background-color: #F0FFFF;
 }
 
 .logo {
@@ -23,6 +24,7 @@ body {
   max-width: 1000px;
   width: 95%;
   margin: auto;
+  background-color:  #F0FDDF;
   /*background-color: lightblue;*/
   /* background-color: white;*/
   /*background: rgb(240, 255, 255);*/
@@ -114,7 +116,7 @@ header nav ul li a:hover {
 
 .caja-tam49 {
 	width: 49%;
-	max-width: 1000px;
+	max-width: 500px;
 	margin-top: 5px;
 	margin-left: 5px;
 	/*float: left;*/
@@ -153,7 +155,7 @@ header nav ul li a:hover {
 .frase p {
 	padding: 40px;
 	margin-top: 0px;
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 }
 
 .caja3 {
@@ -266,7 +268,7 @@ header nav ul li a:hover {
 
 /*Slider*/
 .slider {
-	width: 100%;
+	width: 95%;
 	max-width: 1000px;
 	height: 500px;
 	margin: auto;
@@ -287,26 +289,28 @@ header nav ul li a:hover {
 #ele1 {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("pozole.jpg");
+	background-image: url("pozole1.jpg");
 }
 
 #ele2 {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("mole-poblano.jpg");
+	background-image: url("mole-poblano1.jpg");
 }
 
 #ele3 {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("enchiladas.jpg");
+	background-image: url("enchiladas1.jpg");
 }
 
 #ele4 {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
-	background-image: url("cochinita-pibil.jpg");
+	background-image: url("cochinita-pibil1.jpg");
 }
+
+/*Fin del slider*/
 .cH1,.cH2,.cH3,.cH4,.cH5,.cH6,.cH7,.cH8,.cH9,.cH10{
    
    width: 100%;
