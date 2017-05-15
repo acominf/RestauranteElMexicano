@@ -364,3 +364,24 @@ main{
 
 	text-align: justify;
 }
+
+.AceR{
+
+   text-align: justify;  
+   font-family: Verdana, Arial, Helvetica, sans-serif;
+   font-size: 150%;
+
+ }
+ .iNi{
+  left: 0px;
+  top: 50px;
+  align-self: auto; 
+}
+
+.iNa{
+  width:25%;
+  left: 0px;
+  top: 80px;
+  align-self: auto; 
+
+}
