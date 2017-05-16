@@ -62,38 +62,42 @@ $(document).ready(function () {
 
         //Para las imagenes que estan e la pagina principal.
         $('#catalogo').click(function(){
-            //redireccionar a menu.html
             window.location.href = "menu.html";
         });
 
         $('#reserv').click(function(){
-            //redireccionar a servicios.html
             window.location.href = "servicios.html"
         });
 
         $('#reserv').mouseenter(function(){
-        });
-
-        $('#catalogo').mouseenter(function(){
+            $(this).css('background-image', 'url(reserv2.png)');
         });
 
         $('#reserv').mouseleave(function(){
+            $(this).css('background-image', 'url(reserv1.jpg)');
+        });
+
+        $('#catalogo').mouseenter(function(){
+            $(this).css('background-image', 'url(catalogo2.png)');
         });
 
         $('#catalogo').mouseleave(function(){
+            $(this).css('background-image', 'url(catalogo1.jpg)');
+        });
+        //--------------------------------------------------------
+        //Servicios
+        $('#serv1').click(function(){
+            $('#contServ').slideUp();
+            $('#contServ1').removeClass('serInvisible');
+            $('#contServ1').addClass('aumenta serVisible');
         });
 
-        //Para las imagenes del manu
-        $('#foto1').mouseenter(function(){
-            $(this).addClass('foto1Cambio');
-            $(this).css('background-image', 'url(enchiladas.jpg)');
+        $('#serv2').click(function(){
+            $('#contServ').slideUp();
+            $('#contServ2').removeClass('serInvisible');
+            $('#contServ2').addClass('aumenta serVisible');
         });
         
-        $('#foto1').mouseleave(function(){
-            //$(this).removeClass('foto1Cambio');
-            $(this).css('background-image', 'url(pozole.jpg)');
-        });
-
 });
 
   /*Logo principal situado en la parte de arriba. 
@@ -109,4 +113,23 @@ $(document).ready(function () {
             height: '-=20px',
             width: '-=20px'
         });
-    }) */
+    }) 
+    
+    
+            //Para las imagenes del manu
+        $('#foto1').mouseenter(function(){
+            //$(this).addClass('foto1Cambio');
+            //$(this).css('background-image', 'url(enchiladas.jpg)');
+           //$(this).animate({width:250,height:250,left:-25,rigth:-25});
+        });
+      
+        $('#foto1').mouseleave(function(){
+            //$(this).removeClass('foto1Cambio');
+            $(this).css('background-image', 'url(pozole.jpg)');
+        });
+    
+    
+    
+    
+    
+    */

@@ -1,4 +1,4 @@
-*{
+﻿*{
 	padding: 0;
 	margin:0;
 	-webkit-box-reflect:border-box;
@@ -127,6 +127,7 @@ header nav ul li a:hover {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	text-align: center;
 	margin: 0px;
+	color: white;
 }
  #frase1 , #video1 p{
 	width: 30%;
@@ -265,6 +266,10 @@ header nav ul li a:hover {
 	background-color: green;
 }
 
+.colorBlack {
+	background-color: black;
+}
+
 
 /*Slider*/
 .slider {
@@ -384,4 +389,61 @@ main{
   top: 80px;
   align-self: auto; 
 
+}
+
+.separado {
+	margin-right: 160px;
+}
+
+/*SERVICIOS*/
+.contenedorServ {
+	width: 100%;
+	max-width: 980px;
+	height: 620px;
+	margin: 10px;
+	display: none;
+}
+
+.cajaServ {
+	width: 100%;
+	max-width: 470px;
+	height: 600px;
+	margin: 10px;
+	float: left;
+}
+
+.cajaServ h2 {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	color: black;
+	text-align: center;
+	margin: 20px;
+}
+
+.imagenAnt {
+	width: 100%;
+	max-width: 450px;
+	/*width: 450px;*/
+	height: 500px;
+	margin: 10px;
+}
+
+.imagenDesp {
+	width: 100%;
+	max-width: 100px;
+	/*width: 100px;*/
+	height: 100px;
+	margin: 10px;
+}
+
+.aumenta {
+	width: 100%;
+	max-width: 980px;
+}
+
+.serVisible {
+	display: block;
+}
+
+.serInvisible {
+	display: none;
 }
