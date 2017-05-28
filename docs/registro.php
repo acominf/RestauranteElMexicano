@@ -5,14 +5,15 @@ if(isset ($_SESSION['usuario']))
     header('Location: index.php');
 }
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if($_SERVER['REQUEST_METHOD']=='POST') {
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
     $contraseña2 = $_POST['contraseña2'];
     $errores= '';
+    
     if(empty($usuario) or empty($contraseña) or empty($contraseña2))
     {
-        $errores .= '<p>Usiario o contraseña vacios</p>';
+        $errores .= '<p>Usuario o contraseña vacios</p>';
     }
     else if($contraseña != $contraseña2){
         $errores.= '<p>Las contraseñas son diferentes</p>';
@@ -20,16 +21,18 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     else
     {
         $conexion = new mysqli('localhost', 'root','','ejemplo2');
-        $consulta = "SELECT * FROM USUARIOS WHERE username = '$usuario' AND
-        password = '$contraseña'";
+        //$consulta = "SELECT * FROM USUARIOS WHERE username = '$usuario' AND password = '$contraseña'";
+        $consulta = "SELECT * FROM usuarios WHERE nombre = '$usuario' AND password = '$contraseña'";
         $resultado = $conexion->query($consulta);
-        if($resultado->num_rows !=0){
-            $errores .= '<p>El usuario ya existe</p>';
+
+        if($resultado->num_rows != 0) {
+            $errores = '<p>El usuario ya existe</p>';
         }
         else
         {
             $contraseña = hash('md5','$o#'. $contraseña.'@8!');
-            $consulta = "INSERT INTO USUARIOS values (null, '$usuario', '$contraseña')";
+            //$consulta = "INSERT INTO USUARIOS values (null, '$usuario', '$contraseña')";
+            $consulta = "INSERT INTO cliente values (null, '$usuario', '$contraseña')";
             $conexion->query($consulta);
             $conexion->close();
             header('Location: index.php');
@@ -55,7 +58,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <form method="POST">
     Usuario: <input type="text" name="usuario"><br>
     Contraseña: <input type="password" name="contraseña"><br>
-    Contraseña Nuevamenten: <input type="password" name="contraseña2"><br>
+    Contraseña Nuevamente: <input type="password" name="contraseña2"><br>
     <input type= "submit" value= "registrar">
     </form>
 </body>
