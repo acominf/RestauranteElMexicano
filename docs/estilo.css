@@ -24,8 +24,8 @@ body {
   max-width: 1000px;
   width: 95%;
   margin: auto;
-  background-color:  #F0FDDF;
-  /*background-color: lightblue;*/
+  /*background-color:  #F0FDDF;*/
+  background-color: lightblue;/*-----------------------------------------------------*/
   /* background-color: white;*/
   /*background: rgb(240, 255, 255);*/
 }
@@ -82,7 +82,7 @@ header nav ul li a:hover {
 	max-width: 1000px;
 	height: 30px;
 	margin: auto;
-	background-color:red;
+	/*background-color:red;*/   /*MODIFICACION*/
 	float: left;
 }
 /*Cajas de pagina variedad*/
@@ -146,6 +146,7 @@ header nav ul li a:hover {
 	width: 67%;
 	height: 300px;
 	max-width: 1000px;
+	text-align: center;
 }
 
 .frase {
@@ -154,10 +155,16 @@ header nav ul li a:hover {
 }
 
 .frase p {
-	padding: 40px;
+	padding: 20px; /*---------------------------------------------------------------*/
 	margin-top: 0px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: fantasy;/*-------------------------------------------------------*/
 }
+
+/*------------------SE AGREGGO-----------------*/
+.grande {
+	font-size: 200%;
+}
+/*----------------------------------------*/
 
 .caja3 {
 	height: 380px;
@@ -168,6 +175,7 @@ header nav ul li a:hover {
 	height: 370px;
 }
 
+/*
 #reserv { 
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
@@ -179,11 +187,11 @@ header nav ul li a:hover {
 	background-repeat: no-repeat;
 	background-image: url("catalogoImagen.jpg");
 }
-
+*/
 .contenedorCatalogo {
 	background-color: blue;
 	width: 1000px;
-	height: 1550px;
+	height: 1570px;
 }
 
 .cajaCatalogo {
@@ -191,7 +199,7 @@ header nav ul li a:hover {
 	color: white;
 	float: left;
 	width: 250px; /*120px --- original*/
-	height: 300px; /*200 --- original*/
+	height: 320px; /*200 --- original*/
 	margin: 40px;
 	text-align: center;
 }
@@ -204,6 +212,12 @@ header nav ul li a:hover {
 .cajaCatalogo h2 {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 	margin-top: 10px;
+}
+
+button {
+	width: 100px;
+	height: 30px;
+	padding: 5px;
 }
 
 .divFoto {
@@ -249,6 +263,32 @@ header nav ul li a:hover {
 	background-image: url("TACOS_VIAJA_BONITO.jpg");
 }
 
+.platillo {
+	width: 1000px;
+	height: 500px;
+	padding: 10px;
+}
+
+.contInfoPlatillo {
+	width: 100%;
+	max-width: 1000px;
+	height: 450px;
+	padding: 20px;
+	background-color: wheat;
+}
+
+.Info {
+	width: 450px;
+	height: 400px;
+	margin: 10px;
+	float: left;
+	background-color: red;
+}
+
+.Info p {
+	padding: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
 
 .foto1Cambio {
 	/*background-color: white;*/
@@ -256,7 +296,6 @@ header nav ul li a:hover {
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 }
-
 
 .colorBlue {
 	background-color: blue;
@@ -413,26 +452,34 @@ main{
 }
 
 .cajaServ h2 {
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: black;
 	text-align: center;
 	margin: 20px;
 }
 
+/*Reservacion*/
 .imagenAnt {
 	width: 100%;
 	max-width: 450px;
 	/*width: 450px;*/
 	height: 500px;
 	margin: 10px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("serv1.jpg");
 }
 
+/*Pedido*/
 .imagenDesp {
 	width: 100%;
-	max-width: 100px;
-	/*width: 100px;*/
-	height: 100px;
+	max-width: 450px;
+	/*width: 450px;*/
+	height: 500px;
 	margin: 10px;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-image: url("serv2.jpg");
 }
 
 .aumenta {

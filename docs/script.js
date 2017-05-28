@@ -61,7 +61,7 @@ $(document).ready(function () {
         });
 
         //Para las imagenes que estan e la pagina principal.
-        $('#catalogo').click(function(){
+       /* $('#catalogo').click(function(){
             window.location.href = "menu.html";
         });
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
 
         $('#catalogo').mouseleave(function(){
             $(this).css('background-image', 'url(catalogo1.jpg)');
-        });
+        });*/
         //--------------------------------------------------------
         //Servicios
         $('#serv1').click(function(){
@@ -98,6 +98,12 @@ $(document).ready(function () {
             $('#contServ2').addClass('aumenta serVisible');
         });
         
+        $('#ver1').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info1').removeClass('serInvisible');
+            $('#info1').addClass('serVisible');
+        });
+
 });
 
   /*Logo principal situado en la parte de arriba. 
