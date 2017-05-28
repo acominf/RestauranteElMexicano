@@ -189,14 +189,14 @@ header nav ul li a:hover {
 }
 */
 .contenedorCatalogo {
-	background-color: blue;
+	background-color: #FFFFF0;
 	width: 1000px;
 	height: 1570px;
 }
 
 .cajaCatalogo {
-	background-color: orangered;
-	color: white;
+	background-color: #F5FFFA;
+	color: black;
 	float: left;
 	width: 250px; /*120px --- original*/
 	height: 320px; /*200 --- original*/
