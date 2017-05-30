@@ -12,7 +12,7 @@
     <header>
       <div class="contenedorMenu">
           <div class="logo" id="logoPrincipal">
-            <a href="index.html"><img src="logoPrincipal.png" alt="Principal"></a>
+            <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
           </div>
 
         <nav class="menu">
@@ -23,13 +23,13 @@
                 <li><a href="variedad.html">Variedad</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
-                <?php
-                //Si no esta iniciada la sesion
-                if(!isset($_SESSION['usuario'])){
+                <?php session_start();
+                if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
                     echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
                     echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Registrase</u></a></li>';
-                }else{ 
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/index.php"><u>Pendiente</u></a></li>';
+                }else {
+                  $usuario = $_SESSION['usuario'];
+                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/index.php"><u>'.$usuario.'</u></a></li>';
                     echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Cerrar sesión</u></a></li>';
                 }
                 ?>
