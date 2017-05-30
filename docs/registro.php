@@ -56,7 +56,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 <body>
     <h1>Ejemplo de registro</h1>
     <form method="POST">
-    Usuario: <input type="text" name="usuario"><br>
+    Nombre de Usuario: <input type="text" name="usuario"><br>
     Telefono: <input type="text" name="telefono"><br>
     Contraseña: <input type="password" name="contraseña"><br>
     Contraseña Nuevamenten: <input type="password" name="contraseña2"><br>
