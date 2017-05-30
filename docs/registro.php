@@ -15,7 +15,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if(empty($usuario) or empty($contraseña) or empty($contraseña2))
     {
-        $errores = '<p>Usiario o contraseña vacios</p>';
+        $errores = '<p>Usuario o contraseña vacios</p>';
     }
     else if($contraseña != $contraseña2){
         $errores = '<p>Las contraseñas son diferentes</p>';

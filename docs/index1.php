@@ -1,5 +1,4 @@
 <?php session_start();
-
 if($_SERVER['REQUEST_METHOD']=='POST'){
     $conexion = new mysqli('localhost', 'root','','elMexicano');
     $usuario = $conexion->real_escape_string($_POST['usuario']);
@@ -15,7 +14,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     else
         echo "usuario no valido";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -23,13 +21,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 <head>
   <meta charset="UTF-8">
   <title>Iniciar sesión.</title>
-  <link rel="stylesheet" href="estiloInicios.css">
+  <link rel="stylesheet" type="text/css" href="estilo.css">
   <script src="jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+  <div class="contenedorMenu">
     <header>
-      <div class="contenedorMenu">
           <div class="logo" id="logoPrincipal">
             <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
           </div>
@@ -41,46 +39,32 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                 <li><a href="variedad.html">Variedad</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
-                <?php session_start();
+                <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Registrase</u></a></li>';
-                }else { 
-                    $usuario = $_SESSION['usuario'];
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/index.php"><u>'.$usuario.'</u></a></li>';
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Cerrar sesión</u></a></li>';
+                      echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                    echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
+                }else {
+                  $usuario = $_SESSION['usuario'];
+                    echo '<li><a href=""><u>'.$usuario.'</u></a></li>';
+                    echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
                 }
                 ?>
               </ul>
           </nav>
-      </div>
     </header>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <h1> Ejemplo de sesiones </h1>
-    <form method="POST">
-    Usuario: <input type="text" name="usuario">
-    Contraseña: <input type="password" name="contraseña">
-    <input type= "submit">
-    </form>
-    <a href="contenido.php"> Iniciar sesion</a>
-    <a  href="registro.php">Registrate aqui</a>
+    <main>
+        <div class = "inicioSesion">
+        <h1>Iniciar sesión.</h1>
+            <div class="divDatos">
+                <form method="POST" class="inicioSesion">
+                Usuario: <input type="text" name="usuario"> <br><br>
+                Contraseña: <input type="password" name="contraseña"><br>
+                <input type= "submit">
+                </form>
+            </div>
+            <a href="contenido.php"> Iniciar sesion</a>
+            <a  href="registro.php">Registrate aqui</a>
+        </div>
+    </main>
 </body>
 </html>
