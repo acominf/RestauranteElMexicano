@@ -5,11 +5,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $usuario = $conexion->real_escape_string($_POST['usuario']);
     $contraseña = $conexion->real_escape_string($_POST['contraseña']);
     $contraseña = hash('md5','$o#'. $contraseña.'@8!');
-    $consulta = "SELECT * FROM usuarios WHERE nombre = '$usuario' AND password = '$contraseña'";
+    $consulta = "SELECT * FROM clientes WHERE nombre = '$usuario' AND password = '$contraseña'";
     $resultado = $conexion->query($consulta);
     if($resultado->num_rows == 1)
     {
-        $_SESSION['usuario']= $usuario;
+        $_SESSION['usuario'] = $usuario;
         header('Location: index.php');
     }
     else

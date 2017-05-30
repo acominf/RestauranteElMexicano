@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php session_start();
+
+?>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -23,14 +26,14 @@
                 <li><a href="variedad.html">Variedad</a></li>
                 <li><a href="historia.html">Historia</a></li>
                 <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
-                <?php session_start();
+                <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Registrase</u></a></li>';
+                      echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                    echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
                 }else {
                   $usuario = $_SESSION['usuario'];
                     echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/index.php"><u>'.$usuario.'</u></a></li>';
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/registro.php"><u>Cerrar sesión</u></a></li>';
+                    echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
                 }
                 ?>
               </ul>

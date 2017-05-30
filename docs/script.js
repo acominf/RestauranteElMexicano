@@ -104,6 +104,12 @@ $(document).ready(function () {
             $('#info1').addClass('serVisible');
         });
 
+        $('#ver2').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info2').removeClass('serInvisible');
+            $('#info2').addClass('serVisible');
+        });
+
 });
 
   /*Logo principal situado en la parte de arriba. 

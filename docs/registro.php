@@ -1,27 +1,29 @@
 <?php session_start();
 
-if(isset ($_SESSION['usuario']))
+/*if(isset ($_SESSION['usuario']))
 {
     header('Location: index.php');
-}
+}*/
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
     $contraseña2 = $_POST['contraseña2'];
+    $telefono = $_POST['telefono'];
     $errores= '';
+
     if(empty($usuario) or empty($contraseña) or empty($contraseña2))
     {
-        $errores .= '<p>Usiario o contraseña vacios</p>';
+        $errores = '<p>Usiario o contraseña vacios</p>';
     }
     else if($contraseña != $contraseña2){
-        $errores.= '<p>Las contraseñas son diferentes</p>';
+        $errores = '<p>Las contraseñas son diferentes</p>';
     }
     else
     {
-        $conexion = new mysqli('localhost', 'root','','ejemplo2');
-        $consulta = "SELECT * FROM USUARIOS WHERE username = '$usuario' AND
-        password = '$contraseña'";
+        $conexion = new mysqli('localhost', 'root','','elMexicano');
+        $consulta = "SELECT * FROM clientes WHERE nombre = '$usuario' AND password = '$contraseña'";
         $resultado = $conexion->query($consulta);
         if($resultado->num_rows !=0){
             $errores .= '<p>El usuario ya existe</p>';
@@ -29,12 +31,13 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         else
         {
             $contraseña = hash('md5','$o#'. $contraseña.'@8!');
-            $consulta = "INSERT INTO USUARIOS values (null, '$usuario', '$contraseña')";
+            $consulta = "INSERT INTO clientes values (null, '$usuario', '$contraseña','$telefono')";
             $conexion->query($consulta);
             $conexion->close();
+            $_SESSION['usuario'] = $usuario;
+            $usuarios = $_SESSION['usuario'];
             header('Location: index.php');
         }
-
        $conexion->close();
     }
     echo $errores;
@@ -54,6 +57,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     <h1>Ejemplo de registro</h1>
     <form method="POST">
     Usuario: <input type="text" name="usuario"><br>
+    Telefono: <input type="text" name="telefono"><br>
     Contraseña: <input type="password" name="contraseña"><br>
     Contraseña Nuevamenten: <input type="password" name="contraseña2"><br>
     <input type= "submit" value= "registrar">
