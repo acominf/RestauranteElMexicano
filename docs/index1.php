@@ -56,14 +56,14 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
         <div class = "inicioSesion">
         <h1>Iniciar sesión.</h1>
             <div class="divDatos">
-                <form method="POST" class="inicioSesion">
+                <form method="POST">
                 Usuario: <input type="text" name="usuario"> <br><br>
                 Contraseña: <input type="password" name="contraseña"><br>
                 <input type= "submit">
                 </form>
+                <a href="contenido.php"> Iniciar sesion</a>
+                <a href="registro.php">Registrate aqui</a>
             </div>
-            <a href="contenido.php"> Iniciar sesion</a>
-            <a  href="registro.php">Registrate aqui</a>
         </div>
     </main>
 </body>
