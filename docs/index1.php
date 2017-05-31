@@ -63,7 +63,6 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
                         <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
                     </center>
                 </form>
-                <a href="registro.php">Registrate aqui</a>
             </div>
         </div>
     </main>
