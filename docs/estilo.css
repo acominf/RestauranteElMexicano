@@ -521,3 +521,7 @@ main{
 	margin: 0 auto;
 	background-color: red;
 }
+
+.btnCentrado {
+	margin: 0 auto;
+}

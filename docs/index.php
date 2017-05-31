@@ -17,7 +17,6 @@
           <div class="logo" id="logoPrincipal">
             <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
           </div>
-
         <nav class="menu">
               <ul>
                 <li><a href="index.php">Inicio</a></li>
