@@ -20,10 +20,10 @@
         <nav class="menu">
               <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu.php">Menu</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="variedad.html">Variedad</a></li>
-                <li><a href="historia.html">Historia</a></li>
+                <li><a href="variedad.php">Variedad</a></li>
+                <li><a href="historia.php">Historia</a></li>
                 <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
