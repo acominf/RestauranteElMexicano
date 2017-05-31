@@ -500,7 +500,8 @@ main{
 	height: 400px;
 	padding: 30px;
 	margin: 0 auto;
-	background-color: grey;
+	/*background-color: grey;*/
+	background-image: url("inicios.png");
 }
 
 .inicioSesion h1 {
