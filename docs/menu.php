@@ -20,7 +20,7 @@
         <nav class="menu">
               <ul>
                 <li><a href="index.php">Inicio</a></li>
-                <li><a href="menu.html">Menu</a></li>
+                <li><a href="menu.php">Menu</a></li>
                 <li><a href="servicios.html">Servicios</a></li>
                 <li><a href="variedad.html">Variedad</a></li>
                 <li><a href="historia.html">Historia</a></li>
@@ -128,6 +128,8 @@
             <div class="contInfoPlatillo">
                 <div class="Info" id="vi1"><!-- ponerle serinvisible ENUMERARLOS-->
                     <!--Aqui va a ir el IMAGENES-->
+                
+                    <img class="rece1" src="Plato1.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                 </div>
                 <div class="Info"> 
                      <h2 class="titulo1">Pozole Rojo Receta</h2>
@@ -161,6 +163,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi2">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato2.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
 
@@ -199,6 +202,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi3">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato3.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
 
@@ -228,7 +232,7 @@
            <div class="platillo colorBlack serInvisible" id="info4">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi4">
-                        <!--Aqui va a ir el video-->
+                     <img class="rece1" src="Plato4.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
 
@@ -264,6 +268,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi5">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato5.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
 
@@ -299,6 +304,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi6">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato6.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
                          <h2 class="titulo1">Barbacoa Receta</h2>
@@ -331,6 +337,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi7">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato7.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
                         <h2 class="titulo1">Tamales Receta</h2>
@@ -367,6 +374,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi8">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato8.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
                          <h2 class="titulo1">Torta Ahogada Receta</h2>
@@ -393,6 +401,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi9">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato9.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
                        <h2 class="titulo1">Pescado Zarandeado Receta</h2>
@@ -424,6 +433,7 @@
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi10">
                         <!--Aqui va a ir el video-->
+                        <img class="rece1" src="Plato10.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                     </div>
                     <div class="Info">
                             <h2 class="titulo1">Tacos</h2>

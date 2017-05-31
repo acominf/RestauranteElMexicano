@@ -110,6 +110,56 @@ $(document).ready(function () {
             $('#info2').addClass('serVisible');
         });
 
+        $('#ver3').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info3').removeClass('serInvisible');
+            $('#info3').addClass('serVisible');
+        });
+
+        $('#ver4').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info4').removeClass('serInvisible');
+            $('#info4').addClass('serVisible');
+        });
+
+        $('#ver5').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info5').removeClass('serInvisible');
+            $('#info5').addClass('serVisible');
+        });
+
+        $('#ver6').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info6').removeClass('serInvisible');
+            $('#info6').addClass('serVisible');
+        });
+
+        $('#ver7').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info7').removeClass('serInvisible');
+            $('#info7').addClass('serVisible');
+        });
+
+        $('#ver8').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info8').removeClass('serInvisible');
+            $('#info8').addClass('serVisible');
+        });
+
+        $('#ver9').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info9').removeClass('serInvisible');
+            $('#info9').addClass('serVisible');
+        });
+
+        $('#ver10').click(function(){
+            $('.contenedorCatalogo').slideUp();
+            $('#info10').removeClass('serInvisible');
+            $('#info10').addClass('serVisible');
+        });
+
+
+
 });
 
   /*Logo principal situado en la parte de arriba. 
