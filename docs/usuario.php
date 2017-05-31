@@ -37,46 +37,6 @@
           </nav>
       </div>
     </header>
-      <main>  
-        <div class="slider">
-          <div id="ele1" class="elementSlider svisible"></div>
-          <div id="ele2" class="elementSlider"></div>
-          <div id="ele3" class="elementSlider"></div>
-          <div id="ele4" class="elementSlider"></div>
-        </div>
-
-        <div>
-          <div class="caja caja-tam49 colorBlack" id="btnAnt" >
-            <p>Anterior</p>
-          </div>
-          <div class="caja caja-tam49 colorBlack" id="btnSig">
-            <p>Siguiente</p>
-          </div>
-        </div>
-        
-        <div class="frase ">
-            <div class="caja caja-tam49 " id="frase1">
-              <p>Restaurante El mexicano.</p>
-              <p class="grande">"Ven con nosotros y dale sazón a tu vida!!"</p>
-            </div>
-            <div class="caja caja-tam49 " id="video1">
-              <video controls="controls" width="400" height="300">
-              <source src="videoPrincipal.mp4" type="video/mp4">
-              </video>
-            </div>
-        </div>
-
-        <div class="caja3">
-          <div class="caja caja-tam49 " id="reserv">
-            <a href="servicios.html"><img src="imagenReservacion.jpg" alt="Reservacion"></a>
-          </div>
-          <div class="caja caja-tam49" id="catalogo">
-            <a href="menu.php"><img src="catalogoImagen.jpg" alt="Catalogo"></a>
-          </div>
-        </div>
-
-        <div class="info caja3 colorGreen"></div>
-      </main>
   </div>
 </body>
 </html>
