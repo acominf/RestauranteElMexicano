@@ -1,16 +1,13 @@
 <?php session_start();
 
-/*if(isset ($_SESSION['usuario']))
-{
-    header('Location: index.php');
-}*/
-
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
     
-    $usuario = $_POST['usuario'];
-    $contraseña = $_POST['contraseña'];
-    $contraseña2 = $_POST['contraseña2'];
-    $telefono = $_POST['telefono'];
+    $usuario = $_POST['usuario'];//Nombre
+    $ApellidoP = $_POST['apellidoP'];//Paterno
+    $ApellidoM = $_POST['apellidoM'];//Materno
+    $edad = $_POST['edad'];//Edad
+    $contraseña = $_POST['contraseña'];//contraseña
+    $contraseña2 = $_POST['contraseña2'];//Contraseña2
     $errores= '';
 
     if(empty($usuario) or empty($contraseña) or empty($contraseña2))
@@ -22,20 +19,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     else
     {
-        $conexion = new mysqli('localhost', 'root','','elMexicano');
-        $consulta = "SELECT * FROM clientes WHERE nombre = '$usuario' AND password = '$contraseña'";
+        $conexion = new mysqli('localhost', 'root','','restaura');
+        $consulta = "SELECT * FROM usuario WHERE Nombre = '$usuario' AND password = '$contraseña'";
         $resultado = $conexion->query($consulta);
-        if($resultado->num_rows !=0){
-            $errores .= '<p>El usuario ya existe</p>';
+        if($resultado->num_rows != 0){
+            $errores = '<p>El usuario ya existe</p>';
         }
         else
         {
-            $contraseña = hash('md5','$o#'. $contraseña.'@8!');
-            $consulta = "INSERT INTO clientes values (null, '$usuario', '$contraseña','$telefono')";
+            $contraseña = hash('md5','$o#'.$contraseña.'@8!');
+            echo $contraseña;
+            $consulta = "INSERT INTO usuario values (null, '$usuario', '$ApellidoP','$ApellidoM','$edad', '$contraseña')";
             $conexion->query($consulta);
             $conexion->close();
             $_SESSION['usuario'] = $usuario;
-            $usuarios = $_SESSION['usuario'];
             header('Location: index.php');
         }
        $conexion->close();
@@ -89,7 +86,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
             <div class="divDatos registro">
                 <form method="POST">
                     Nombre de Usuario: <input type="text" name="usuario"><br><br>
-                    Telefono: <input type="text" name="telefono"><br><br>
+                    Apellido Paterno: <input type="text" name="apellidoP"><br><br>
+                    Apellido Materno: <input type="text" name="apellidoM"><br><br>
+                    Edad: <input type="text" name="edad"><br><br>
                     Contraseña: <input type="password" name="contraseña"><br><br>
                     Confirmar contraseña: <input type="password" name="contraseña2"><br><br>
                     <center>

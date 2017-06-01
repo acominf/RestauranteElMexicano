@@ -1,11 +1,12 @@
 <?php session_start();
 if($_SERVER['REQUEST_METHOD']=='POST'){
-    $conexion = new mysqli('localhost', 'root','','elMexicano');
+    $conexion = new mysqli('localhost','root','','restaura');
     $usuario = $conexion->real_escape_string($_POST['usuario']);
-    $contraseña = $conexion->real_escape_string($_POST['contraseña']);
-    $contraseña = hash('md5','$o#'. $contraseña.'@8!');
-    $consulta = "SELECT * FROM clientes WHERE nombre = '$usuario' AND password = '$contraseña'";
+    $contrasena = $conexion->real_escape_string($_POST['contrasena']);
+    $contrasena = hash('md5','$o#'.$contrasena.'@8!');
+    $consulta = "SELECT * FROM usuario WHERE Nombre='$usuario' AND password='$contrasena'";
     $resultado = $conexion->query($consulta);
+
     if($resultado->num_rows == 1)
     {
         $_SESSION['usuario'] = $usuario;
@@ -54,11 +55,11 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     </header>
     <main>
         <div class = "inicioSesion">
-        <h1>Iniciar sesión.</h1>
             <div class="divDatos">
+            <h1>Iniciar sesión.</h1>
                 <form method="POST">
-                    Usuario: <input type="text" name="usuario"> <br><br>
-                    Contraseña: <input type="password" name="contraseña"><br><br>
+                    Usuario:<input type="text" name="usuario"> <br><br>
+                    Contraseña:<input type="password" name="contrasena"><br><br>
                     <center>
                         <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
                     </center>

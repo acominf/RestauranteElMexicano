@@ -516,10 +516,10 @@ main{
 .divDatos {
 	padding: 30px;
 	width: 350px;
-	height: 150px;
+	height: 250px;
 	/*margin: 0 auto;*/
 	float: right;
-	background-color: red;
+	/*background-color: red;*/
 }
 
 .btnCentrado {
