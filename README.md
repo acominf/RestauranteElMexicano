@@ -1,6 +1,6 @@
 # RestauranteElMexicano
 
-![En construcción](https://upload.wikimedia.org/wikipedia/commons/e/ef/En_construccion.jpg)
+![Logotipo Restaurant](https://upload.wikimedia.org/wikipedia/commons/e/ef/En_construccion.jpg)
 
 ## Objetivo de la aplicación
 El objetivo de la aplicación es crear una pagina web en donde diferentes usuarios puedan acceder y relalizar reservaciones para una mesa en algun restaurante y poder acudir a cenar, o tambien, podra realizar pedidos de comidas para posteriormente ser entregada en su domicilio.
