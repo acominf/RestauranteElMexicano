@@ -22,7 +22,7 @@
                 <li><a href="servicios.php">Servicios</a></li>
                 <li><a href="variedad.php">Variedad</a></li>
                 <li><a href="historia.php">Historia</a></li>
-                <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
+                <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
                     echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';

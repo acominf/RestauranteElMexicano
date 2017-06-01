@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<?php session_start();
-
-?>
+<?php session_start();?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -31,7 +29,7 @@
                     echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
                 }else {
                   $usuario = $_SESSION['usuario'];
-                    echo '<li><a href="http://localhost/EjemplosPhp/ejemplosMysql/sesiones/index.php"><u>'.$usuario.'</u></a></li>';
+                    echo '<li><a href="usuario.php"><u>'.$usuario.'</u></a></li>';
                     echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
                 }
                 ?>
@@ -124,11 +122,10 @@
               </div>
             </section>
           </main>
-          <div class="platillo colorBlack serInvisible" id="info1">
+          <div class="platillo serInvisible" id="info1">
             <div class="contInfoPlatillo">
                 <div class="Info" id="vi1"><!-- ponerle serinvisible ENUMERARLOS-->
                     <!--Aqui va a ir el IMAGENES-->
-                
                     <img class="rece1" src="Plato1.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                 </div>
                 <div class="Info"> 
@@ -159,7 +156,7 @@
             </div>
           </div>
 
-           <div class="platillo colorBlack serInvisible" id="info2">
+           <div class="platillo serInvisible" id="info2">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi2">
                         <!--Aqui va a ir el video-->
@@ -198,7 +195,7 @@
                 </div>
             </div>
 
-           <div class="platillo colorBlack serInvisible" id="info3">
+           <div class="platillo serInvisible" id="info3">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi3">
                         <!--Aqui va a ir el video-->
@@ -229,7 +226,7 @@
                 </div>
             </div>  
 
-           <div class="platillo colorBlack serInvisible" id="info4">
+           <div class="platillo serInvisible" id="info4">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi4">
                      <img class="rece1" src="Plato4.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
@@ -264,7 +261,7 @@
                 </div>
             </div>     
 
-           <div class="platillo colorBlack serInvisible" id="info5">
+           <div class="platillo serInvisible" id="info5">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi5">
                         <!--Aqui va a ir el video-->
@@ -300,7 +297,7 @@
                 </div>
             </div>   
 
-           <div class="platillo colorBlack serInvisible" id="info6">
+           <div class="platillo serInvisible" id="info6">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi6">
                         <!--Aqui va a ir el video-->
@@ -333,7 +330,7 @@
                     </div>
                 </div>
             </div>
-           <div class="platillo colorBlack serInvisible" id="info7">
+           <div class="platillo serInvisible" id="info7">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi7">
                         <!--Aqui va a ir el video-->
@@ -370,7 +367,7 @@
                 </div>
             </div>
 
-           <div class="platillo colorBlack serInvisible" id="info8">
+           <div class="platillo serInvisible" id="info8">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi8">
                         <!--Aqui va a ir el video-->
@@ -397,7 +394,7 @@
                 </div>
             </div>
 
-           <div class="platillo colorBlack serInvisible" id="info9">
+           <div class="platillo serInvisible" id="info9">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi9">
                         <!--Aqui va a ir el video-->
@@ -429,7 +426,7 @@
                 </div>
             </div>
 
-           <div class="platillo colorBlack serInvisible" id="info10">
+           <div class="platillo serInvisible" id="info10">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi10">
                         <!--Aqui va a ir el video-->
@@ -463,14 +460,6 @@
                     </div>
                 </div>
             </div>
-          <!--Fin de la informacion del platillo-->
-
-
-
-
-
-
-
       </div>
   </div>
 </body>

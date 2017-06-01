@@ -82,8 +82,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     <main>
         <div class = "inicioSesion">
-        <h1>Registro.</h1>
             <div class="divDatos registro">
+                <h1>Registro.</h1>
                 <form method="POST">
                     Nombre de Usuario: <input type="text" name="usuario"><br><br>
                     Apellido Paterno: <input type="text" name="apellidoP"><br><br>

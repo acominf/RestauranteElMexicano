@@ -274,7 +274,7 @@ button {
 	max-width: 1000px;
 	height: 450px;
 	padding: 20px;
-	background-color: wheat;
+	/*background-color: wheat;*/
 }
 
 .Info {
@@ -282,7 +282,7 @@ button {
 	height: 400px;
 	margin: 10px;
 	float: left;
-	background-color: red;
+	/*background-color: red;*/
 }
 
 .Info p {
@@ -453,7 +453,7 @@ main{
 
 .cajaServ h2 {
 	font-family: Arial, Helvetica, sans-serif;
-	color: black;
+	/*color: black;*/
 	text-align: center;
 	margin: 20px;
 }
@@ -496,7 +496,7 @@ main{
 }
 
 .inicioSesion {
-	width: 800px;
+	width: 810px;
 	height: 400px;
 	padding: 30px;
 	margin: 0 auto;
@@ -513,13 +513,18 @@ main{
 	font-size: 230%;
 }
 
+.inicioSesion p {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
 .divDatos {
 	padding: 30px;
 	width: 350px;
 	height: 250px;
-	/*margin: 0 auto;*/
 	float: right;
-	/*background-color: red;*/
+	background-color: #DCDCDC;
 }
 
 .btnCentrado {
@@ -528,7 +533,7 @@ main{
 
 .registro {
 	width: 400px;
-	height: 250px;
+	height: 380px;
 	margin: 0 auto;
 }
 
