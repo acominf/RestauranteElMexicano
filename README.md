@@ -1,6 +1,6 @@
 # RestauranteElMexicano
 
-![Logotipo Restaurant](https://github.com/acominf/RestauranteElMexicano/blob/master/logoPrincipal.png)
+![Logotipo Restaurant](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/logoPrincipal.png)
 
 
 ## Objetivo de la aplicación
@@ -21,19 +21,20 @@ La descripción de la funcionalidad 1 es que el cliente podra registrarse en la 
 La descripción de la funcionalidad 2 es, que el cliente podra haacer reservaciones para ir a comer al restaurante o hacer pedidos de platillos que posteriormente se entregen en su domicilio.
 
 ### Diaggrama de Componentes
-![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/Componentes.png)
+![Diagrama Componentes](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Componentes.png)
 
 ### Diaggrama Relacional Base de Datos.
-![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/Diagrama%20Relacional.png)
+![Diagrama Relacional](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Diagrama%20Relacional.png)
 
 ### Link al Proyecto.
+![Aplicacion Página](https://github.com/acominf/RestauranteElMexicano/blob/master/Diagrama%20Relacional.png)
 http://148.224.194.33/restaura/
 
 ### Secciones Principal.
-![Ventana Principal](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP1.png)
+![Ventana Principal](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP1.png)
 
 ### Secciones Menu.
-![Sesión Rest](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP2.png)
+![Sesión Rest](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP2.png)
 
 ### Secciones Servicios.
 ![Sesión Servicios](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP3.png)
