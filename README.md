@@ -1,6 +1,7 @@
 # RestauranteElMexicano
 
-![En construcción](https://upload.wikimedia.org/wikipedia/commons/e/ef/En_construccion.jpg)
+![Logotipo Restaurant](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/logoPrincipal.png)
+
 
 ## Objetivo de la aplicación
 El objetivo de la aplicación es crear una pagina web en donde diferentes usuarios puedan acceder y relalizar reservaciones para una mesa en algun restaurante y poder acudir a cenar, o tambien, podra realizar pedidos de comidas para posteriormente ser entregada en su domicilio.
@@ -19,14 +20,13 @@ La descripción de la funcionalidad 1 es que el cliente podra registrarse en la 
 ### Reservaciones.
 La descripción de la funcionalidad 2 es, que el cliente podra haacer reservaciones para ir a comer al restaurante o hacer pedidos de platillos que posteriormente se entregen en su domicilio.
 
-### Funcionalidad 3
-La descripción de la funcionalidad 3 es ...
+### Diaggrama de Componentes
+![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Componentes.png)
 
-### Funcionalidad 4
-La descripción de la funcionalidad 4 es ...
+### Diaggrama Relacional Base de Datos.
+![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png)
 
-### Funcionalidad 5
-La descripción de la funcionalidad 5 es ...
+https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png
 
 ## Autor(es)
 El autor(es) del proyecto son:
