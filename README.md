@@ -21,10 +21,10 @@ La descripción de la funcionalidad 1 es que el cliente podra registrarse en la 
 La descripción de la funcionalidad 2 es, que el cliente podra haacer reservaciones para ir a comer al restaurante o hacer pedidos de platillos que posteriormente se entregen en su domicilio.
 
 ### Diaggrama de Componentes
-![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Componentes.png)
+![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/Componentes.png)
 
 ### Diaggrama Relacional Base de Datos.
-![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png)
+![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/Diagrama%20Relacional.png)
 
 https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png
 
@@ -32,13 +32,13 @@ https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Rel
 http://148.224.194.33/restaura/
 
 ### Secciones Principal.
-![Ventana Principal](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP1.png)
+![Ventana Principal](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP1.png)
 
 ### Secciones Menu.
-![Sesión Rest](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP2.png)
+![Sesión Rest](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP2.png)
 
 ### Secciones Servicios.
-![Sesión Servicios](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP3.png)
+![Sesión Servicios](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP3.png)
 ## Autor(es)
 El autor(es) del proyecto son:
 - Yair De Jesus Terrones Quiroz (@yairTerrones)
