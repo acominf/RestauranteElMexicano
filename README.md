@@ -33,6 +33,9 @@ https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Rel
 
 ### Secciones Menu.
 ![Sesión Rest](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP2.png)
+
+### Secciones Servicios.
+![Sesión Servicios](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP3.png)
 ## Autor(es)
 El autor(es) del proyecto son:
 - Yair De Jesus Terrones Quiroz (@yairTerrones)
