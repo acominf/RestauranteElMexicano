@@ -30,13 +30,13 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 [Aplicacion Página]()
 http://148.224.194.33/restaura/
 
-### Secciones Principal.
+### Sección Principal.
 ![Ventana Principal](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP1.png)
 
-### Secciones Menu.
+### Sección Menu.
 ![Sesión Rest](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP2.png)
 
-### Secciones Servicios.
+### Sección Servicios.
 ![Seción Servicios](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP3.png)
 ## Autor(es)
 El autor(es) del proyecto son:
