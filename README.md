@@ -20,14 +20,8 @@ La descripción de la funcionalidad 1 es que el cliente podra registrarse en la 
 ### Reservaciones.
 La descripción de la funcionalidad 2 es, que el cliente podra haacer reservaciones para ir a comer al restaurante o hacer pedidos de platillos que posteriormente se entregen en su domicilio.
 
-### Funcionalidad 3
-La descripción de la funcionalidad 3 es ...
-
-### Funcionalidad 4
-La descripción de la funcionalidad 4 es ...
-
-### Funcionalidad 5
-La descripción de la funcionalidad 5 es ...
+### Diaggrama de Componentes
+![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Componentes.png)
 
 ## Autor(es)
 El autor(es) del proyecto son:
