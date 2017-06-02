@@ -20,10 +20,10 @@ La descripción de la funcionalidad 1 es que el cliente podra registrarse en la 
 ### Reservaciones.
 La descripción de la funcionalidad 2 es, que el cliente podra haacer reservaciones para ir a comer al restaurante o hacer pedidos de platillos que posteriormente se entregen en su domicilio.
 
-### Diaggrama de Componentes
+### Diagrama de Componentes
 ![Diagrama Componentes](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Componentes.png)
 
-### Diaggrama Relacional Base de Datos.
+### Diagrama Relacional Base de Datos.
 ![Diagrama Relacional](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Diagrama%20Relacional.png)
 
 ### Link al Proyecto.
