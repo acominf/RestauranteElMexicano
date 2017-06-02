@@ -1,6 +1,6 @@
 # RestauranteElMexicano
 
-![Logotipo Restaurant](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/logoPrincipal.png)
+![Logotipo Restaurant](https://github.com/acominf/RestauranteElMexicano/blob/master/logoPrincipal.png)
 
 
 ## Objetivo de la aplicación
