@@ -28,8 +28,11 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 
 https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png
 
-### Ventana Principal.
+### Secciones Principal.
 ![Ventana Principal](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP1.png)
+
+### Secciones Menu.
+![Sesión Rest](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/paginaP2.png)
 ## Autor(es)
 El autor(es) del proyecto son:
 - Yair De Jesus Terrones Quiroz (@yairTerrones)
