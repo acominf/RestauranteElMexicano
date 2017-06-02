@@ -544,3 +544,19 @@ main{
   align-self: auto; 
 
 }
+
+.tablaP {
+	width: 1000px;
+	height: 
+}
+
+.invisible {
+	display: none;
+}
+
+.tablaReserv {
+	width: 500px;
+	height: 400px;
+	padding: 10px;
+	background-color: blue;
+}

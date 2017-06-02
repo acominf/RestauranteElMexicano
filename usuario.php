@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<?php session_start();?>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +21,7 @@
                 <li><a href="servicios.php">Servicios</a></li>
                 <li><a href="variedad.php">Variedad</a></li>
                 <li><a href="historia.php">Historia</a></li>
-                <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
+                <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
                     echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
@@ -37,6 +36,70 @@
           </nav>
       </div>
     </header>
+    <main>
+          <div class = "inicioSesion">
+            <div class="divDatos">
+            <h1>Bienvenido</h1>
+                <form method="POST">
+                    <center>
+                        <input type="submit" name="ver" class="btnCentrado" value="VerReserv"><br><br>
+                        Fecha: <input type="date" name="fecha" value="dd/mmm/aaaa"/><br><br>
+                        <input type="submit" value= "Cancelar" class="btnReserva">
+                    </center>
+                </form>
+            </div>
+        </div>
+        <div class="tablaReserv"> 
+        <?php session_start();
+
+          if(isset($_POST['ver'])) {
+            $usuario = $_SESSION['usuario'];//Nombre
+            $idCliente = $_SESSION['idCliente'];//Nombre
+            $conexion = new mysqli('localhost','root','','restaurante');
+            $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
+            $resultado = $conexion->query($consulta);
+
+            if($resultado){
+              echo '<h1>Reservaciones</h1>';
+              echo '<table>';
+              echo '<tr>';
+                  echo '<td><strong> idReservacion </strong></td>';
+                  echo '<td><strong> idCliente  </strong></td>';
+                  echo '<td><strong> numeroPersonas  </strong></td>';
+                  echo '<td><strong> numeroMesa  </strong></td>';
+                  echo '<td><strong> Fecha  </strong></td>';
+                  echo '<td><strong> Hora  </strong></td>';
+              echo '</tr>';
+              for($i = 0; $i < $resultado->num_rows; $i++){
+                  $resultado->data_seek($i);
+                  $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                  echo '<tr>';
+                  echo '<td>'.$renglon['idReservacion'].'</td>';
+                  echo '<td>'.$renglon['idCliente'].'</td>';
+                  echo '<td>'.$renglon['numeroPersonas'].'</td>';
+                  echo '<td>'.$renglon['numMesa'].'</td>';
+                  echo '<td>'.$renglon['Fecha'].'</td>';
+                  echo '<td>'.$renglon['Hora'].'</td>';
+                  echo '</tr>';
+              }
+              echo '</table>';
+            }
+          }
+
+          if(isset($_POST['fecha'])) {
+            $dato = $_POST['fecha'];
+            $usuario = $_SESSION['usuario'];//Nombre
+            $idCliente = $_SESSION['idCliente'];//Nombre
+            $conexion = new mysqli('localhost','root','','restaurante');
+            $consulta = "DELETE FROM reservacion WHERE fecha='$dato'";
+            $resultado = $conexion->query($consulta);
+            echo "<script>alert('La reservación ha sido cancelada')</script>";
+          }
+
+
+          ?>
+        </div>
+    </main>
   </div>
 </body>
 </html>

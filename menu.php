@@ -1,5 +1,46 @@
 <!DOCTYPE html>
-<?php session_start();?>
+<?php session_start();
+    
+    if(!isset($_SESSION['usuario'])) { //Si no hha iniciado sesion.
+        header('Location: index1.php');//Que se logie
+    }else {
+        //Checamos si hay una peticion de pedido.
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo $_SESSION['btnCompra'];
+
+            if($_SESSION['btnCompra'] == '0') {
+                $usuario = $_SESSION['usuario'];//Nombre
+                $idClient = $_SESSION['idCliente'];//idCliente
+                $conexion = new mysqli('localhost','root','','restaurante');//Consulta
+                $consulta = "INSERT INTO pedido values (null,0,'$idClient')";
+                //$resultado = $conexion->query($consulta);
+
+                if ($conexion->query($consulta) === TRUE) {
+                    $last_id = $conexion->insert_id;
+                    $platillo = $_SESSION['btn'];;//Numero de platillo.
+                    $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id','$platillo')";//Nuevo pedidoPlatillo.
+                    $conexion->query($consulta2);
+                    echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
+                } else {
+                    echo "Error: " . $consulta . "<br>" . $conexion->error;
+                }
+                $conexion->close();
+            }else {
+                $idClient = $_SESSION['idCliente'];//idCliente
+                $conexion = new mysqli('localhost','root','','restaurante');//Consulta
+                $consulta = "SELECT * FROM pedido INNER JOIN pedidoplatillo ON pedido.idPedido = pedidoplatillo.idPedido INNER JOIN 
+                platillo ON pedidoplatillo.idPlatillo = platillo.idPlatillo WHERE pedido.idCliente = '$idClient'";
+
+                if ($conexion->query($consulta) === TRUE) {
+                    $conexion->close();
+                    echo "<script>alert('Su total a pagar es: ')</script>";
+                }
+
+            }
+
+        }
+    }
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -13,19 +54,19 @@
     <header>
       <div class="contenedorMenu">
         <div class="logo">
-          <a href="index.html"><img src="logoPrincipal.png" alt="Principal"></a>
+          <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
         </div>
         <nav class="menu">
               <ul>
                 <li><a href="index.php">Inicio</a></li>
                 <li><a href="menu.php">Menu</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="variedad.html">Variedad</a></li>
-                <li><a href="historia.html">Historia</a></li>
-                <li class="separado"><a href="acercaDe.html">A cerca de..</a></li>
+                <li><a href="servicios.php">Servicios</a></li>
+                <li><a href="variedad.php">Variedad</a></li>
+                <li><a href="historia.php">Historia</a></li>
+                <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                      echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
                     echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
                 }else {
                   $usuario = $_SESSION['usuario'];
@@ -39,12 +80,26 @@
      </header>
           <main>
             <section>
+            <form method="POST">
+                <?php //Boton de realizar compra.
+                    $_SESSION['btnCompra'] = '1';
+                ?>
+                <input type="submit" value="Realizar Comprar" name="btnCompra">
+            </form>
               <div class="contenedorCatalogo">
                 <div class="cajaCatalogo">
                     <h2>Pozole</h2>
                     <div class="divFoto claseFotoCat foto1" id="foto1"></div>
                     <p>$40</p>
-                    <button id="ordenar1">Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <!-- <div class="invisible"><input type="text" value="1" name="btn"></div>-->
+                        <?php 
+                            $_SESSION['btn'] = '1';
+                            $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver1">Ver platillo</button>
                 </div>
 
@@ -52,7 +107,14 @@
                     <h2>Mole poblano</h2>
                     <div class="divFoto claseFotoCat foto2" id="foto2"></div>
                     <p>$50</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '2';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver2">Ver platillo</button>
                 </div>
 
@@ -60,7 +122,14 @@
                     <h2>Enchiladas</h2>
                     <div class="divFoto claseFotoCat foto3" id="foto3"></div>
                     <p>$70</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php
+                         $_SESSION['btn'] = '3';
+                         $_SESSION['btnCompra'] = '0';
+                         ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver3">Ver platillo</button>
                 </div>
 
@@ -68,7 +137,14 @@
                     <h2>Cochinita pibil</h2>
                     <div class="divFoto claseFotoCat foto4" id="foto4"></div>
                     <p>$100</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '4';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver4">Ver platillo</button>
                 </div>
 
@@ -76,7 +152,14 @@
                     <h2>Chiles en noganda</h2>
                     <div class="divFoto claseFotoCat foto5" id="foto5"></div>
                     <p>$45</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '5';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver5">Ver platillo</button>
                 </div>
 
@@ -84,7 +167,14 @@
                     <h2>Barbacoa</h2>
                     <div class="divFoto claseFotoCat foto6" id="foto6"></div>
                     <p>$500</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '6';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver6">Ver platillo</button>
                 </div>
         
@@ -92,7 +182,14 @@
                     <h2>Tamales</h2>
                     <div class="divFoto claseFotoCat foto7" id="foto7"></div>
                     <p>$15</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '7';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver7">Ver platillo</button>
                 </div>
 
@@ -100,7 +197,14 @@
                     <h2>Torta Ahogada</h2>
                     <div class="divFoto claseFotoCat foto8" id="foto8"></div>
                     <p>$35</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php
+                         $_SESSION['btn'] = '8';
+                         $_SESSION['btnCompra'] = '0';
+                         ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver8">Ver platillo</button>
                 </div>
 
@@ -108,7 +212,14 @@
                     <h2>Pescado Zarandeado</h2>
                     <div class="divFoto claseFotoCat foto9" id="foto9"></div>
                     <p>$60</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '9';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver9">Ver platillo</button>
                 </div>
 
@@ -116,7 +227,14 @@
                     <h2>Tacos</h2>
                     <div class="divFoto claseFotoCat foto10" id="foto10"></div>
                     <p>$9</p>
-                    <button>Ordenar</button>
+                    <form method="POST">
+                    <!-- Oculto -->
+                        <?php 
+                        $_SESSION['btn'] = '10';
+                        $_SESSION['btnCompra'] = '0';
+                        ?>
+                        <input type="submit" value="Orden">
+                    </form>
                     <button id="ver10">Ver platillo</button>
                 </div>
               </div>
@@ -154,6 +272,7 @@
                     <p></p>
                 </div>
             </div>
+            <button id="back1">Regresar</button>
           </div>
 
            <div class="platillo serInvisible" id="info2">
@@ -193,6 +312,7 @@
                   
                     </div>
                 </div>
+                <button id="back2">Regresar</button>
             </div>
 
            <div class="platillo serInvisible" id="info3">
@@ -224,6 +344,7 @@
                         </ol>
                     </div>
                 </div>
+                <button id="back3">Regresar</button>
             </div>  
 
            <div class="platillo serInvisible" id="info4">
@@ -259,6 +380,7 @@
                         </ol>
                     </div>
                 </div>
+                <button id="back4">Regresar</button>
             </div>     
 
            <div class="platillo serInvisible" id="info5">
@@ -295,6 +417,7 @@
                         </ol>
                     </div>
                 </div>
+                <button id="back5">Regresar</button>
             </div>   
 
            <div class="platillo serInvisible" id="info6">
@@ -329,7 +452,9 @@
                         </ol>                        
                     </div>
                 </div>
+                <button id="back6">Regresar</button>
             </div>
+
            <div class="platillo serInvisible" id="info7">
                 <div class="contInfoPlatillo">
                     <div class="Info" id="vi7">
@@ -365,6 +490,7 @@
                         </ol>                        
                     </div>
                 </div>
+                <button id="back7">Regresar</button>
             </div>
 
            <div class="platillo serInvisible" id="info8">
@@ -392,6 +518,7 @@
                         </ol>                        
                     </div>
                 </div>
+                <button id="back8">Regresar</button>
             </div>
 
            <div class="platillo serInvisible" id="info9">
@@ -424,6 +551,7 @@
                         </ol>                  
                     </div>
                 </div>
+                <button id="back9">Regresar</button>
             </div>
 
            <div class="platillo serInvisible" id="info10">
@@ -459,6 +587,7 @@
                        
                     </div>
                 </div>
+                <button id="back10">Regresar</button>
             </div>
       </div>
   </div>

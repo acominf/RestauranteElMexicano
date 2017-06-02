@@ -60,22 +60,26 @@
               <p class="grande">"Ven con nosotros y dale sazón a tu vida!!"</p>
             </div>
             <div class="caja caja-tam49 " id="video1">
-              <video controls="controls" width="400" height="300">
+              <!-- <video controls="controls" width="400" height="300">
               <source src="videoPrincipal.mp4" type="video/mp4">
-              </video>
+              </video> -->
+              <iframe width="420" height="315" src="https://www.youtube.com/watch?v=nd4V4UgXOXQ">
+               </iframe>
             </div>
         </div>
 
         <div class="caja3">
           <div class="caja caja-tam49 " id="reserv">
-            <a href="servicios.html"><img src="imagenReservacion.jpg" alt="Reservacion"></a>
+            <a href="servicios.php"><img src="imagenReservacion.jpg" alt="Reservacion"></a>
           </div>
           <div class="caja caja-tam49" id="catalogo">
             <a href="menu.php"><img src="catalogoImagen.jpg" alt="Catalogo"></a>
           </div>
         </div>
 
-        <div class="info caja3 colorGreen"></div>
+        <div class="info caja3 colorGreen">
+          
+        </div>
       </main>
   </div>
 </body>

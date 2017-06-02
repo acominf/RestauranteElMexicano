@@ -59,32 +59,6 @@ $(document).ready(function () {
                 }
             });
         });
-
-        //Para las imagenes que estan e la pagina principal.
-       /* $('#catalogo').click(function(){
-            window.location.href = "menu.html";
-        });
-
-        $('#reserv').click(function(){
-            window.location.href = "servicios.html"
-        });
-
-        $('#reserv').mouseenter(function(){
-            $(this).css('background-image', 'url(reserv2.png)');
-        });
-
-        $('#reserv').mouseleave(function(){
-            $(this).css('background-image', 'url(reserv1.jpg)');
-        });
-
-        $('#catalogo').mouseenter(function(){
-            $(this).css('background-image', 'url(catalogo2.png)');
-        });
-
-        $('#catalogo').mouseleave(function(){
-            $(this).css('background-image', 'url(catalogo1.jpg)');
-        });*/
-        //--------------------------------------------------------
         //Servicios
         $('#serv1').click(function(){
             $('#contServ').slideUp();
@@ -93,9 +67,7 @@ $(document).ready(function () {
         });
 
         $('#serv2').click(function(){
-            $('#contServ').slideUp();
-            $('#contServ2').removeClass('serInvisible');
-            $('#contServ2').addClass('aumenta serVisible');
+            window.location.href = "menu.php";
         });
         
         $('#ver1').click(function(){
@@ -103,17 +75,34 @@ $(document).ready(function () {
             $('#info1').removeClass('serInvisible');
             $('#info1').addClass('serVisible');
         });
+        $('#back1').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info1').removeClass('serVisible');
+            $('#info1').addClass('serInvisible');
+        });
+
 
         $('#ver2').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#info2').removeClass('serInvisible');
             $('#info2').addClass('serVisible');
         });
+        $('#back2').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info2').removeClass('serVisible');
+            $('#info2').addClass('serInvisible');
+        });
+
 
         $('#ver3').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#info3').removeClass('serInvisible');
             $('#info3').addClass('serVisible');
+        });
+        $('#back3').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info3').removeClass('serVisible');
+            $('#info3').addClass('serInvisible');
         });
 
         $('#ver4').click(function(){
@@ -121,11 +110,21 @@ $(document).ready(function () {
             $('#info4').removeClass('serInvisible');
             $('#info4').addClass('serVisible');
         });
+        $('#back4').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info4').removeClass('serVisible');
+            $('#info4').addClass('serInvisible');
+        });
 
         $('#ver5').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#info5').removeClass('serInvisible');
             $('#info5').addClass('serVisible');
+        });
+        $('#back5').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info5').removeClass('serVisible');
+            $('#info5').addClass('serInvisible');
         });
 
         $('#ver6').click(function(){
@@ -133,11 +132,21 @@ $(document).ready(function () {
             $('#info6').removeClass('serInvisible');
             $('#info6').addClass('serVisible');
         });
+        $('#back6').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info6').removeClass('serVisible');
+            $('#info6').addClass('serInvisible');
+        });
 
         $('#ver7').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#info7').removeClass('serInvisible');
             $('#info7').addClass('serVisible');
+        });
+        $('#back7').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info7').removeClass('serVisible');
+            $('#info7').addClass('serInvisible');
         });
 
         $('#ver8').click(function(){
@@ -145,11 +154,21 @@ $(document).ready(function () {
             $('#info8').removeClass('serInvisible');
             $('#info8').addClass('serVisible');
         });
+        $('#back8').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info8').removeClass('serVisible');
+            $('#info8').addClass('serInvisible');
+        });
 
         $('#ver9').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#info9').removeClass('serInvisible');
             $('#info9').addClass('serVisible');
+        });
+        $('#back9').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info9').removeClass('serVisible');
+            $('#info9').addClass('serInvisible');
         });
 
         $('#ver10').click(function(){
@@ -157,7 +176,11 @@ $(document).ready(function () {
             $('#info10').removeClass('serInvisible');
             $('#info10').addClass('serVisible');
         });
-
+        $('#back10').click(function(){
+            $('.contenedorCatalogo').slideDown();
+            $('#info10').removeClass('serVisible');
+            $('#info10').addClass('serInvisible');
+        });
 
 
 });

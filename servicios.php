@@ -1,28 +1,27 @@
 <?php session_start();
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-    //Iniciamos la conexion.
-    $conexion = new mysqli('localhost','root','','restaura');
-    //Reunimos la informacion
-    $numPersonas = $_POST['personas'];
-    $dia = $_POST['dia'];
-    $mes = $_POST['mes'];
-    $hora = $_POST['hora'];
-    //Concatenamos la fecha.
-    $fechaCompleta = $dia."/".$mes;
-    //Realizamos la consulta.
-    //$consulta = "SELECT * FROM reservacion WHERE Fecha='$fechaCompleta'";
-    //$resultado = $conexion->query($consulta);
 
-    $consulta = "INSERT INTO reservacion values (null,null, '$fechaCompleta','$hora')";
-    $resultado = $conexion->query($consulta);
+  if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    //if($resultado->num_rows < 11)
-    //{
-      //echo "si hay mesas.";
-    //}
-    //else
-        //echo "no Hay mesas";
-}
+      $conexion = new mysqli('localhost','root','','restaurante');//Iniciamos la conexion.
+      $numPersonas = $_POST['personas'];//Reunimos la informacion
+      $fecha = $_POST['fecha'];
+      $hora = $_POST['hora'];
+      $idCliente = $_SESSION['idCliente'];
+      $consulta = "SELECT * FROM reservacion WHERE Fecha='$fecha'";//Realizamos la consulta.
+      $resultado = $conexion->query($consulta);
+
+      //cehcar los rengloes si hay menos de 10 si se puede si no no.
+      if($resultado->num_rows < 11) {
+        //Checar que no se repita.
+        $numMesa = rand(1, 10);//random para la mesa
+        $consulta = "INSERT INTO reservacion values (null,'$idCliente', '$numPersonas','$numMesa','$fecha','$hora')";
+        $resultado = $conexion->query($consulta);//insertar
+        echo "<script>alert('Gracias por tu reservación te esperamos.....')</script>";
+      }else{
+        //Mostrar datos de que no se pude.
+        echo "<script>alert('No hay mesas disponibles...')</script>";
+      }
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -94,8 +93,83 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         <div class = "inicioSesion">
             <div class="divDatos">
             <h1>Reservación</h1>
-                <form>
-                No. Personas: <select name="personas"> 
+                <form method="POST">
+                Personas: <input type="number" name="personas" min="1" max="5"/><br><br>
+                Fecha: <input type="date" name="fecha" value="dd/mmm/aaaa"/><br><br>
+                Hora: <input type="time" name="hora"/><br><br>
+                    <center>
+                        <input type="submit" value= "Reservar" class="btnReserva">
+                    </center>
+                </form>
+            </div>
+        </div>
+        </div>
+
+        <div class="cajaServ serInvisible" id="contServ2">
+        <div class = "inicioSesion">
+            <div class="divDatos">
+            <h1>Pedidos</h1>
+                <form method="POST">
+                    Personas: <input type="number" name="personas" min="1" max="5"/><br><br>
+                    Fecha: <input type="date" name="fecha" value="dd/mmm/aaaa"/><br><br>
+                    Hora: <input type="time" name="hora"/><br><br>
+                    <center>
+                        <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
+                    </center>
+                </form>
+            </div>
+        </div>
+        </div>
+
+      <div class="cajaServ serInvisible" id="contServ3">
+        <div class = "inicioSesion">
+          <h1>Informacion de la reservación</h1>
+          <!--Consulta-->
+        </div>
+      </div>
+
+      <div class="cajaServ serInvisible" id="contServ4">
+        <div class = "inicioSesion">
+          <h1>Informacion de los pedidos</h1>
+          <!--Consulta-->
+        </div>
+      </div>
+
+      <!-- En caso de no haber iniciado sesion-->
+        <div class="cajaServ serInvisible" id="contServ5">
+        <!--Informacion para el formulario de inicio de sesion-->
+        <div class = "inicioSesion">
+          <h1>Reservación</h1>
+            <div class="divDatos">
+                <form method="POST">
+                    Usuario: <input type="text" name="usuario"><br><br>  
+                    Contraseña: <input type="password" name="contraseña"><br><br>
+                    <center>
+                        <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
+                    </center>
+                </form>
+            </div>
+        </div>
+        </div>
+      </main>
+  </div>
+</body>
+</html>
+
+
+<!--         
+
+  
+                Hora: <select name="hora"> 
+                          <option value="0"></option> 
+                          <option value="5">5:00 pm</option>
+                          <option value="6">6:00 pm</option> 
+                          <option value="7">7:00 pm</option> 
+                          <option value="8">8:00 pm</option> 
+                          <option value="9">9:00 pm</option> 
+                          <option value="10">10:00 pm</option>  
+                        </select> <br><br>  
+                  No. Personas: <select name="personas"> 
                           <option value="0"></option> 
                           <option value="1">1</option>
                           <option value="2">2</option> 
@@ -103,7 +177,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                           <option value="5">5</option> 
                           <option value="7">7</option> 
                           </select><br><br>
-                 Dia: <select name="dia"> 
+  
+  
+         Dia: <select name="dia"> 
                           <option value="0"></option> 
                           <option value="1">1</option>
                           <option value="2">2</option> 
@@ -150,70 +226,4 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                           <option value="Octubre">Octubre</option> 
                           <option value="Noviembre">Noviembre</option> 
                           <option value="Diciembre">Diciembre</option> 
-                        </select> <br><br>
-                 Hora: <select name="hora"> 
-                          <option value="0"></option> 
-                          <option value="5">5:00 pm</option>
-                          <option value="6">6:00 pm</option> 
-                          <option value="7">7:00 pm</option> 
-                          <option value="8">8:00 pm</option> 
-                          <option value="9">9:00 pm</option> 
-                          <option value="10">10:00 pm</option>  
-                        </select> <br><br>
-                    <center>
-                        <input type= "submit" value= "Reservar" class="btnReserva">
-                    </center>
-                </form>
-            </div>
-        </div>
-        </div>
-
-        <div class="cajaServ colorBlue serInvisible" id="contServ2">
-        <!--Informacion para el formulario de pedidos-->
-        <div class = "inicioSesion">
-            <div class="divDatos">
-            <h1>Pedidos</h1>
-                <form method="POST">
-                    Contraseña: <input type="password" name="contraseña"><br><br>
-                    <center>
-                        <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
-                    </center>
-                </form>
-            </div>
-        </div>
-        </div>
-
-      <div class="cajaServ serInvisible" id="contServ3">
-        <div class = "inicioSesion">
-          <h1>Informacion de la reservación</h1>
-          <!--Consulta-->
-        </div>
-      </div>
-
-      <div class="cajaServ serInvisible" id="contServ4">
-        <div class = "inicioSesion">
-          <h1>Informacion de los pedidos</h1>
-          <!--Consulta-->
-        </div>
-      </div>
-
-      <!-- En caso de no haber iniciado sesion-->
-        <div class="cajaServ serInvisible" id="contServ5">
-        <!--Informacion para el formulario de inicio de sesion-->
-        <div class = "inicioSesion">
-          <h1>Reservación</h1>
-            <div class="divDatos">
-                <form method="POST">
-                    Usuario: <input type="text" name="usuario"><br><br>  
-                    Contraseña: <input type="password" name="contraseña"><br><br>
-                    <center>
-                        <input type= "submit" value= "Iniciar sesión" class="btnCentrado">
-                    </center>
-                </form>
-            </div>
-        </div>
-        </div>
-      </main>
-  </div>
-</body>
-</html>
+                        </select> <br><br>-->
