@@ -23,6 +23,11 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 ### Diaggrama de Componentes
 ![Diagrama Componentes](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Componentes.png)
 
+### Diaggrama Relacional Base de Datos.
+![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png)
+
+https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png
+
 ## Autor(es)
 El autor(es) del proyecto son:
 - Yair De Jesus Terrones Quiroz (@yairTerrones)
