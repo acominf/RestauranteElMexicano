@@ -26,8 +26,6 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 ### Diaggrama Relacional Base de Datos.
 ![Diagrama Relacional](https://github.com/acominf/RestauranteElMexicano/blob/master/Diagrama%20Relacional.png)
 
-https://github.com/acominf/RestauranteElMexicano/blob/master/docs/Diagrama%20Relacional.png
-
 ### Link al Proyecto.
 http://148.224.194.33/restaura/
 
