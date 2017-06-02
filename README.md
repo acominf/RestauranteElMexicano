@@ -27,7 +27,7 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 ![Diagrama Relacional](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Diagrama%20Relacional.png)
 
 ### Link al Proyecto.
-![Aplicacion Página](https://github.com/acominf/RestauranteElMexicano/blob/master/Diagrama%20Relacional.png)
+![Aplicacion Página]()
 http://148.224.194.33/restaura/
 
 ### Secciones Principal.
