@@ -37,7 +37,7 @@ http://148.224.194.33/restaura/
 ![Sesión Rest](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP2.png)
 
 ### Secciones Servicios.
-![Sesión Servicios](https://github.com/acominf/RestauranteElMexicano/blob/master/paginaP3.png)
+![Sesión Servicios](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP3.png)
 ## Autor(es)
 El autor(es) del proyecto son:
 - Yair De Jesus Terrones Quiroz (@yairTerrones)
