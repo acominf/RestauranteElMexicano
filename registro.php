@@ -38,11 +38,11 @@
     <main>
         <!--<div class = "inicioSesion" class="serVisible">-->
             <div class="divDatos registro">
-                <form method="POST" action="inicioRegistro.php" class="letraForm" id="formReg">
+                <form method="POST" action="inicioRegistro.php" class="letraForm" id="formReg" name="formulario">
                     <fieldset>
                        <legend>El MEXICANO</legend><br>
                        Nombre de usuario:<br>
-                       <input type="text" name="usuario" class="tamInput"><br>
+                       <input type="text" name="usuario" class="tamInput" onkeyup="showHint(this.value)"><br>
                        Direccion:<br>
                        <input type="text" name="direccion" class="tamInput"><br>
                        Contrasenna:<br>
@@ -52,8 +52,26 @@
                        <center><input type="submit" value="Registrarse" class="letraForm"></center> 
                    </fieldset> 
                 </form>
+                <p>Suggestions: <span id="txtHint"></span></p>
             </div>
         <!--</div>-->
+        <script>
+            function showHint(str) {
+                if (str.length == 0) { 
+                    document.getElementById("txtHint").innerHTML = "";
+                    return;
+                } else {
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            document.getElementById("txtHint").innerHTML = this.responseText;
+                        }
+                    };
+                    xmlhttp.open("GET", "gethint.php?q=" + str, true);
+                    xmlhttp.send();
+                }
+            }
+        </script>
     </main>
     </div>
 </body>
