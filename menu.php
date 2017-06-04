@@ -1,104 +1,119 @@
-<!DOCTYPE html>
 <?php session_start();
-    
-    if(!isset($_SESSION['usuario'])) { //Si no hha iniciado sesion.
-        header('Location: index1.php');//Que se logie
-    }else {
-        //Checamos si hay una peticion de pedido.
-        if($_SERVER['REQUEST_METHOD'] == 'POST') {
-            echo $_SESSION['btnCompra'];
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        //Obtenemos el nombre y el id del ususario.
+        $usuario = $_SESSION['usuario'];
+        $idCliente = $_SESSION['idCliente'];
+        
+        //Cuando elegimos un platillo.
+        if (isset($_POST['btnOrden'])) {
+//            $conexion = new mysqli('localhost','root','','restaurante');
+//            $consulta = "INSERT INTO pedido values (null,0,$idCliente)";
+//
+//            if ($conexion->query($consulta) === TRUE) {
+//                $last_id = $conexion->insert_id;//Obtenemos el ultimo insertado.
+//                $platillo = $_SESSION['btn'];//Numero de platillo.
+//                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id','$platillo')";//Nuevo pedidoPlatillo.
+//                $conexion->query($consulta2);//Crear la consulta.
+//                echo "<script>alert('Su platillo ha sido agregado con �xito!!!')</script>";
+//            } else {
+//                echo "Error: " . $consulta . "<br>" . $conexion->error;
+//            }
+//            $conexion->close();
+        }
+        
+        //Cuando vamos a realizar la compra
+        if (isset($_POST['btnCompra'])) {
+//            $conexion = new mysqli('localhost','root','','restaurante');
+//            $consulta = "SELECT * FROM pedido INNER JOIN pedidoplatillo ON pedido.idPedido = pedidoplatillo.idPedido INNER JOIN 
+//            platillo ON pedidoplatillo.idPlatillo = platillo.idPlatillo WHERE pedido.idCliente = '$idCliente'";
 
-            if($_SESSION['btnCompra'] == '0') {
-                $usuario = $_SESSION['usuario'];//Nombre
-                $idClient = $_SESSION['idCliente'];//idCliente
-                $conexion = new mysqli('localhost','root','','restaurante');//Consulta
-                $consulta = "INSERT INTO pedido values (null,0,'$idClient')";
-                //$resultado = $conexion->query($consulta);
-
-                if ($conexion->query($consulta) === TRUE) {
-                    $last_id = $conexion->insert_id;
-                    $platillo = $_SESSION['btn'];;//Numero de platillo.
-                    $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id','$platillo')";//Nuevo pedidoPlatillo.
-                    $conexion->query($consulta2);
-                    echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
-                } else {
-                    echo "Error: " . $consulta . "<br>" . $conexion->error;
-                }
-                $conexion->close();
-            }else {
-                $idClient = $_SESSION['idCliente'];//idCliente
-                $conexion = new mysqli('localhost','root','','restaurante');//Consulta
-                $consulta = "SELECT * FROM pedido INNER JOIN pedidoplatillo ON pedido.idPedido = pedidoplatillo.idPedido INNER JOIN 
-                platillo ON pedidoplatillo.idPlatillo = platillo.idPlatillo WHERE pedido.idCliente = '$idClient'";
-
-                if ($conexion->query($consulta) === TRUE) {
-                    $conexion->close();
-                    echo "<script>alert('Su total a pagar es: ')</script>";
-                }
-
-            }
-
+//            if ($conexion->query($consulta) === TRUE) {
+//                $conexion->close();
+//                echo "<script>alert('Su total a pagar es: ')</script>";
+//            }  else {
+//                echo 'no se realizo la compra';
+//            }
+        }
+        
+        //Cuando vemos el carrito.
+        if (isset($_POST['btnCarro'])) {
+            //Consulta de platillos.
         }
     }
-?>
+?>  
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Menú</title>
+    <title>Catalogo</title>
     <link rel="stylesheet" href="estilo.css">
     <script src="jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
     <div class="contenedor">
-    <header>
-      <div class="contenedorMenu">
-        <div class="logo">
-          <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
-        </div>
-        <nav class="menu">
-              <ul>
-                <li><a href="index.php">Inicio</a></li>
-                <li><a href="menu.php">Menu</a></li>
-                <li><a href="servicios.php">Servicios</a></li>
-                <li><a href="variedad.php">Variedad</a></li>
-                <li><a href="historia.php">Historia</a></li>
-                <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
-                <?php 
-                if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
-                    echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
-                }else {
-                  $usuario = $_SESSION['usuario'];
-                    echo '<li><a href="usuario.php"><u>'.$usuario.'</u></a></li>';
-                    echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
-                }
-                ?>
-              </ul>
-          </nav>
-      </div>
-     </header>
+        <header>
+          <div class="contenedorMenu">
+                <div class="logo">
+                    <a href="index.php"><img src="imagenes/logoPrincipal.png" alt="Principal"></a>
+                </div>
+                <nav class="menu">
+                      <ul>
+                        <li><a href="index.php">Inicio</a></li>
+                        <li><a href="menu.php">Menu</a></li>
+                        <li><a href="servicios.php">Servicios</a></li>
+                        <li><a href="variedad.php">Variedad</a></li>
+                        <li><a href="historia.php">Historia</a></li>
+                        <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
+                        <?php 
+                        if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
+                            echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                            echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
+                        }else {
+                          $usuario = $_SESSION['usuario'];
+                            echo '<li><a href="usuario.php"><u>'.$usuario.'</u></a></li>';
+                            echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
+                        }
+                        ?>
+                      </ul>
+                  </nav>
+          </div>
+         </header>
           <main>
             <section>
-            <form method="POST">
-                <?php //Boton de realizar compra.
-                    $_SESSION['btnCompra'] = '1';
-                ?>
-                <input type="submit" value="Realizar Comprar" name="btnCompra">
-            </form>
+                
+                <div class="contenedorBtnMenu" id="info">
+                    <p id="infoCompra">Informacion</p>
+                    <form method="POST">
+                   <center>
+                       <input type="submit" value=" Realizar Compra " name="btnCompra" class="letraForm" onclick="compra()" >
+                   </center>
+                   </form>
+                   <form method="POST">
+                   <center>
+                       <input type="submit" value=" Ver Carrito " name="btnCarro" class="letraForm">
+                   </center>
+                   </form>  
+                    <button id="btnComp">Realizar compra</button>
+                </div>
+                
+                <div id="divCompra" class="contenedorBtnMenu serInvisible " >
+                    <!--Meter codigo php-->
+                    <button id="back1"> Cerrar </button>
+                </div>
+             
+                <div id="divCarro" class="contenedorBtnMenu serInvisible" >
+                    
+                </div>
+                
               <div class="contenedorCatalogo">
                 <div class="cajaCatalogo">
                     <h2>Pozole</h2>
                     <div class="divFoto claseFotoCat foto1" id="foto1"></div>
                     <p>$40</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <!-- <div class="invisible"><input type="text" value="1" name="btn"></div>-->
-                        <?php 
-                            $_SESSION['btn'] = '1';
-                            $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '1';?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver1">Ver platillo</button>
                 </div>
@@ -108,12 +123,8 @@
                     <div class="divFoto claseFotoCat foto2" id="foto2"></div>
                     <p>$50</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '2';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php $_SESSION['btn'] = '2'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver2">Ver platillo</button>
                 </div>
@@ -123,12 +134,8 @@
                     <div class="divFoto claseFotoCat foto3" id="foto3"></div>
                     <p>$70</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php
-                         $_SESSION['btn'] = '3';
-                         $_SESSION['btnCompra'] = '0';
-                         ?>
-                        <input type="submit" value="Orden">
+                        <?php $_SESSION['btn'] = '3'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver3">Ver platillo</button>
                 </div>
@@ -138,12 +145,8 @@
                     <div class="divFoto claseFotoCat foto4" id="foto4"></div>
                     <p>$100</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '4';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '4'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver4">Ver platillo</button>
                 </div>
@@ -153,12 +156,8 @@
                     <div class="divFoto claseFotoCat foto5" id="foto5"></div>
                     <p>$45</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '5';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '5'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver5">Ver platillo</button>
                 </div>
@@ -168,12 +167,8 @@
                     <div class="divFoto claseFotoCat foto6" id="foto6"></div>
                     <p>$500</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '6';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '6'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver6">Ver platillo</button>
                 </div>
@@ -183,12 +178,8 @@
                     <div class="divFoto claseFotoCat foto7" id="foto7"></div>
                     <p>$15</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '7';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '7'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver7">Ver platillo</button>
                 </div>
@@ -198,12 +189,8 @@
                     <div class="divFoto claseFotoCat foto8" id="foto8"></div>
                     <p>$35</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php
-                         $_SESSION['btn'] = '8';
-                         $_SESSION['btnCompra'] = '0';
-                         ?>
-                        <input type="submit" value="Orden">
+                        <?php $_SESSION['btn'] = '8'; ?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver8">Ver platillo</button>
                 </div>
@@ -213,12 +200,8 @@
                     <div class="divFoto claseFotoCat foto9" id="foto9"></div>
                     <p>$60</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '9';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '9';?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver9">Ver platillo</button>
                 </div>
@@ -228,12 +211,8 @@
                     <div class="divFoto claseFotoCat foto10" id="foto10"></div>
                     <p>$9</p>
                     <form method="POST">
-                    <!-- Oculto -->
-                        <?php 
-                        $_SESSION['btn'] = '10';
-                        $_SESSION['btnCompra'] = '0';
-                        ?>
-                        <input type="submit" value="Orden">
+                        <?php  $_SESSION['btn'] = '10';?>
+                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
                     </form>
                     <button id="ver10">Ver platillo</button>
                 </div>
@@ -546,7 +525,7 @@
                             Coloca el jengibre, chiles, ajo, sal y pimienta en un molcajete o mortero; tritura hasta tener una pasta homogénea. 
                             Vierte la pasta dentro de un tazón chico y mezcla con el jugo de limón y la salsa de botella.<br>
                             Unta el pescado por todos lados con la mezcla y déjalo reposar durante 10 minutos, luego colócalo en una parrilla para asar, asegurándote de que quede bien prensado.
-                             Ásalo durante aproximadamente 10 minutos por lado.<br>
+                             �?salo durante aproximadamente 10 minutos por lado.<br>
                             Deja que el pescado repose durante por lo menos 5 minutos antes de servir.<br>
                         </ol>                  
                     </div>

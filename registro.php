@@ -1,62 +1,8 @@
-<?php session_start();
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    
-    $usuario = $_POST['usuario'];//Nombre
-    $contraseña = $_POST['contraseña'];//contraseña
-    $contraseña2 = $_POST['contraseña2'];//Contraseña2
-    $errores = '';
-
-    if(empty($usuario) or empty($contraseña) or empty($contraseña2))
-    {
-        $errores = '<p>Usuario o contraseña vacios</p>';
-    }
-    else if($contraseña != $contraseña2){
-        $errores = '<p>Las contraseñas son diferentes</p>';
-    }
-    else
-    {
-        $conexion = new mysqli('localhost', 'root','','restaurante');
-        $consulta = "SELECT * FROM cliente WHERE Nombre = '$usuario' AND password = '$contraseña'";
-        $resultado = $conexion->query($consulta);
-
-        if($resultado->num_rows != 0) {
-            $errores = '<p>El usuario ya existe</p>';
-        }
-        else
-        {
-            $contraseña = hash('md5','$o#'.$contraseña.'@8!');
-            $consulta = "INSERT INTO cliente values (null,'$usuario','$contraseña')";
-            $conexion->query($consulta);
-            $conexion->close();
-
-            $conexion = new mysqli('localhost','root','','restaurante');
-            $consulta = "SELECT * FROM cliente WHERE Nombre='$usuario'";
-            $resultado = $conexion->query($consulta);
-
-            if($resultado->num_rows == 1)
-            {
-                $row = mysqli_fetch_array($resultado);
-                $_SESSION['idCliente'] = $row['idCliente'];
-            }
-            $conexion->close();
-
-
-            $_SESSION['usuario'] = $usuario;
-            header('Location: index.php');
-        }
-       $conexion->close();
-    }
-    echo $errores;
-}
-   
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Iniciar sesión.</title>
+    <title>Iniciar sesion.</title>
     <link rel="stylesheet" type="text/css" href="estilo.css">
     <script src="jquery-3.1.1.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
@@ -65,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="contenedorMenu">
         <header>
           <div class="logo" id="logoPrincipal">
-            <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
+              <a href="index.php"><img src="imagenes/logoPrincipal.png" alt="Principal"></a>
           </div>
         <nav class="menu">
               <ul>
@@ -89,18 +35,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
           </nav>
     </header>
     </div>
-
     <main>
-        <div class = "inicioSesion">
+        <div class = "inicioSesion" class="serVisible">
             <div class="divDatos registro">
-                <h1>Registro.</h1>
-                <form method="POST">
-                    Nombre de Usuario: <input type="text" name="usuario"><br><br>
-                    Contraseña: <input type="password" name="contraseña"><br><br>
-                    Confirmar contraseña: <input type="password" name="contraseña2"><br><br>
-                    <center>
-                        <input type= "submit" value= "Registrar" class="btnCentrado">
-                    </center>
+                <form method="POST" action="inicioRegistro.php" class="letraForm" id="formReg">
+                    <fieldset>
+                       <legend>El MEXICANO</legend><br>
+                       Nombre de usuario:<br>
+                       <input type="text" name="usuario" class="tamInput"><br>
+                       Direccion:<br>
+                       <input type="text" name="direccion" class="tamInput"><br>
+                       Contrasenna:<br>
+                       <input type="password" name="contrasenna" class="tamInput"><br>
+                       Confirmar Contrasenna:<br>
+                       <input type="password" name="contrasenna2" class="tamInput"><br><br>                      
+                       <center><input type="submit" value="Registrarse" class="letraForm"></center> 
+                   </fieldset> 
                 </form>
             </div>
         </div>

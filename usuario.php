@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -12,7 +14,7 @@
     <header>
       <div class="contenedorMenu">
           <div class="logo" id="logoPrincipal">
-            <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
+              <a href="index.php"><img src="imagenes/logoPrincipal.png" alt="Principal"></a>
           </div>
         <nav class="menu">
               <ul>
@@ -37,69 +39,107 @@
       </div>
     </header>
     <main>
-          <div class = "inicioSesion">
+          <div class = "inicioSesion" >
             <div class="divDatos">
-            <h1>Bienvenido</h1>
-                <form method="POST">
+            <h1>Bienvenido <?php echo $_SESSION['usuario']; ?>   </h1>
+                <form method="POST" class="letraForm">
+                    <fieldset>
+                        <legend>El MEXICANO</legend><br>
+                        <center>
+                            <!-- Cambiar le tamaÒo con jquery -->
+                            <input type="submit" name="pedidos" value=" Pedidos " class="letraForm" ><br>
+                            <input type="submit" name="reservacion" value=" Reservaciones " class="letraForm" ><br>
+                        </center>
+                   </fieldset> 
+                </form>
+            </div>
+        </div>
+        
+        <div class="tablaReserv">
+            <?php
+                if($_SERVER['REQUEST_METHOD'] == 'POST') {
+                    
+                    $usuario = $_SESSION['usuario'];//Nombre
+                    $idCliente = $_SESSION['idCliente'];//Nombre
+
+                    if(isset($_POST['reservacion'])) {
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
+                        $resultado = $conexion->query($consulta);
+
+                        if($resultado->num_rows > 0){
+                            echo '<h1>Reservaciones realizadas: </h1>';
+                            echo '<table>';
+                            echo '<tr>';
+                                echo '<td><strong> idReservacion </strong></td>';
+                                echo '<td><strong> idCliente  </strong></td>';
+                                echo '<td><strong> Personas  </strong></td>';
+                                echo '<td><strong> Mesa  </strong></td>';
+                                echo '<td><strong> Fecha  </strong></td>';
+                                echo '<td><strong> Hora  </strong></td>';
+                            echo '</tr>';
+                            for($i = 0; $i < $resultado->num_rows; $i++){
+                                $resultado->data_seek($i);
+                                $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                                echo '<tr>';
+                                echo '<td>'.$renglon['idReservacion'].'</td>';
+                                echo '<td>'.$renglon['idCliente'].'</td>';
+                                echo '<td>'.$renglon['numeroPersonas'].'</td>';
+                                echo '<td>'.$renglon['numMesa'].'</td>';
+                                echo '<td>'.$renglon['Fecha'].'</td>';
+                                echo '<td>'.$renglon['Hora'].'</td>';
+                                echo '</tr>';
+                              }
+                            echo '</table>';
+                        }else{
+                            echo "<script>alert('No hay reservaciones.')</script>";
+                        }
+                    }
+                    
+                    if (isset($_POST['pedidos'])) {
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        //$consulta = "SELECT * FROM pedido WHERE idCliente='$idCliente'";
+                        $consulta = "SELECT cliente.idCliente , Nombre , Direccion , pedido.idPedido "
+                                    . "FROM cliente INNER JOIN pedido on cliente.idCliente=pedido.idCliente "
+                                    . "WHERE cliente.idCliente = "
+                                    . "'$idCliente'";
+                        $resultado = $conexion->query($consulta);
+
+                        if($resultado->num_rows > 0){
+                          echo '<h1>Pedidos realizados: </h1>';
+                          echo '<table>';
+                          echo '<tr>';
+                              echo '<td><strong> idCliente  </strong></td>';
+                              echo '<td><strong> Nombre </strong></td>';
+                              echo '<td><strong> Direccion </strong></td>';
+                              echo '<td><strong> Pedido </strong></td>';
+                          echo '</tr>';
+                          for($i = 0; $i < $resultado->num_rows; $i++){
+                              $resultado->data_seek($i);
+                              $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                              echo '<tr>';
+                              echo '<td>'.$renglon['idCliente'].'</td>';
+                              echo '<td>'.$renglon['Nombre'].'</td>';
+                              echo '<td>'.$renglon['Direccion'].'</td>';
+                              echo '<td>'.$renglon['idPedido'].'</td>';
+                              echo '</tr>';
+                            }
+                          echo '</table>';
+                        }else{
+                            echo "<script>alert('No hay reservaciones.')</script>";
+                        }
+                    }
+                }
+            ?>
+        </div>
+    </main>
+  </div>
+</body>
+                <!--<form method="POST" >
                     <center>
                         <input type="submit" name="ver" class="btnCentrado" value="VerReserv"><br><br>
                         Fecha: <input type="date" name="fecha" value="dd/mmm/aaaa"/><br><br>
                         <input type="submit" value= "Cancelar" class="btnReserva">
                     </center>
-                </form>
-            </div>
-        </div>
-        <div class="tablaReserv"> 
-        <?php session_start();
-
-          if(isset($_POST['ver'])) {
-            $usuario = $_SESSION['usuario'];//Nombre
-            $idCliente = $_SESSION['idCliente'];//Nombre
-            $conexion = new mysqli('localhost','root','','restaurante');
-            $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
-            $resultado = $conexion->query($consulta);
-
-            if($resultado){
-              echo '<h1>Reservaciones</h1>';
-              echo '<table>';
-              echo '<tr>';
-                  echo '<td><strong> idReservacion </strong></td>';
-                  echo '<td><strong> idCliente  </strong></td>';
-                  echo '<td><strong> numeroPersonas  </strong></td>';
-                  echo '<td><strong> numeroMesa  </strong></td>';
-                  echo '<td><strong> Fecha  </strong></td>';
-                  echo '<td><strong> Hora  </strong></td>';
-              echo '</tr>';
-              for($i = 0; $i < $resultado->num_rows; $i++){
-                  $resultado->data_seek($i);
-                  $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
-                  echo '<tr>';
-                  echo '<td>'.$renglon['idReservacion'].'</td>';
-                  echo '<td>'.$renglon['idCliente'].'</td>';
-                  echo '<td>'.$renglon['numeroPersonas'].'</td>';
-                  echo '<td>'.$renglon['numMesa'].'</td>';
-                  echo '<td>'.$renglon['Fecha'].'</td>';
-                  echo '<td>'.$renglon['Hora'].'</td>';
-                  echo '</tr>';
-              }
-              echo '</table>';
-            }
-          }
-
-          if(isset($_POST['fecha'])) {
-            $dato = $_POST['fecha'];
-            $usuario = $_SESSION['usuario'];//Nombre
-            $idCliente = $_SESSION['idCliente'];//Nombre
-            $conexion = new mysqli('localhost','root','','restaurante');
-            $consulta = "DELETE FROM reservacion WHERE fecha='$dato'";
-            $resultado = $conexion->query($consulta);
-            echo "<script>alert('La reservaci√≥n ha sido cancelada')</script>";
-          }
-
-
-          ?>
-        </div>
-    </main>
-  </div>
-</body>
+                </form> -->
 </html>

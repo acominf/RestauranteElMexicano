@@ -1,30 +1,8 @@
-<?php session_start();
-
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $conexion = new mysqli('localhost','root','','restaurante');
-    $usuario = $conexion->real_escape_string($_POST['usuario']);
-    $contrasena = $conexion->real_escape_string($_POST['contrasena']);
-    $contrasena = hash('md5','$o#'.$contrasena.'@8!');
-    $consulta = "SELECT * FROM cliente WHERE Nombre='$usuario' AND password='$contrasena'";
-    $resultado = $conexion->query($consulta);
-
-    if($resultado->num_rows == 1)
-    {
-        $row = mysqli_fetch_array($resultado);
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['idCliente'] = $row['idCliente'];
-        header('Location: index.php');
-    }
-    else
-        echo "usuario no valido";
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Iniciar sesión.</title>
+  <title>Iniciar sesion.</title>
   <link rel="stylesheet" type="text/css" href="estilo.css">
   <script src="jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
@@ -33,7 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <div class="contenedorMenu">
     <header>
           <div class="logo" id="logoPrincipal">
-            <a href="index.php"><img src="logoPrincipal.png" alt="Principal"></a>
+              <a href="index.php"><img src="imagenes/logoPrincipal.png" alt="Principal"></a>
           </div>
         <nav class="menu">
               <ul>
@@ -45,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                      echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
                     echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
                 }else {
                   $usuario = $_SESSION['usuario'];
@@ -56,19 +34,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
               </ul>
           </nav>
     </header>
+  </div>
     <main>
-        <div class = "inicioSesion">
-            <div class="divDatos">
-            <h1>Iniciar sesión.</h1>
-                <form method="POST">
-                    Usuario: <input type="text" name="usuario"> <br><br>
-                    Contraseña: <input type="password" name="contrasena"><br><br>
-                    <center>
-                        <input type="submit" value="Iniciar sesión" class="btnCentrado">
-                    </center>
+        <div class="inicioSesion">
+            <div class="divDatos" >
+                <form method="POST" action="inicioSesion.php" class="letraForm">
+                 <fieldset>
+                    <legend>El MEXICANO</legend><br>
+                    Nombre de usuario:<br>
+                    <input type="text" name="usuario" class="tamInput"><br>
+                    Contrasenna:<br>
+                    <input type="password" name="contrasenna" class="tamInput"><br><br>
+                    <center><input type="submit" value="Inciar sesion" class="letraForm"></center>
+                </fieldset> 
                 </form>
             </div>
         </div>
-    </main>
+     </main>
 </body>
 </html>
