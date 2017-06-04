@@ -181,21 +181,20 @@ $(document).ready(function () {
             $('#info10').removeClass('serVisible');
             $('#info10').addClass('serInvisible');
         });
-        
-        
+
         $('#Compra').click(function(){
             $('.contenedorCatalogo').slideUp();
             $('#Compra').addClass('serVisible');
         });
         
-        $('#p1').click(function(){
-            $('#divCompra').removeClass('serInvisible');
-            $('#divCompra').addClass('serVisible');
+        $('#btnCarro').click(function(){
+            $('#divCarro').removeClass('serInvisible');
+            $('#divCarro').addClass('serVisible');
         });
         
         $('#back1').click(function() {
-            $('#divCompra').removeClass('serVisible');
-            $('#divCompra').addClass('serInvisible');
+            $('#divCarro').removeClass('serVisible');
+            $('#divCarro').addClass('serInvisible');
         });
         
 });

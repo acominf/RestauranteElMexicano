@@ -534,6 +534,11 @@ main{
     font-size: 150%;
 }
 
+.letraAviso {
+    font-family: impact;
+    font-size: 100%;
+}
+
 .tamInput {
     width: 300px;
     height: 30px;

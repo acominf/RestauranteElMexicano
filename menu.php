@@ -1,44 +1,47 @@
 <?php session_start();
+    
+    if(!isset($_SESSION['usuario'])){
+        header('Location: index1.php');
+    }
+
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //Obtenemos el nombre y el id del ususario.
         $usuario = $_SESSION['usuario'];
         $idCliente = $_SESSION['idCliente'];
         
         //Cuando elegimos un platillo.
-        if (isset($_POST['btnOrden'])) {
-//            $conexion = new mysqli('localhost','root','','restaurante');
-//            $consulta = "INSERT INTO pedido values (null,0,$idCliente)";
-//
-//            if ($conexion->query($consulta) === TRUE) {
-//                $last_id = $conexion->insert_id;//Obtenemos el ultimo insertado.
-//                $platillo = $_SESSION['btn'];//Numero de platillo.
-//                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id','$platillo')";//Nuevo pedidoPlatillo.
-//                $conexion->query($consulta2);//Crear la consulta.
-//                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
-//            } else {
-//                echo "Error: " . $consulta . "<br>" . $conexion->error;
-//            }
-//            $conexion->close();
-        }
-        
-        //Cuando vamos a realizar la compra
-        if (isset($_POST['btnCompra'])) {
-//            $conexion = new mysqli('localhost','root','','restaurante');
-//            $consulta = "SELECT * FROM pedido INNER JOIN pedidoplatillo ON pedido.idPedido = pedidoplatillo.idPedido INNER JOIN 
-//            platillo ON pedidoplatillo.idPlatillo = platillo.idPlatillo WHERE pedido.idCliente = '$idCliente'";
+        $conexion = new mysqli('localhost','root','','restaurante');
+        $consulta = "INSERT INTO pedido values (null,0,$idCliente)";
 
-//            if ($conexion->query($consulta) === TRUE) {
-//                $conexion->close();
-//                echo "<script>alert('Su total a pagar es: ')</script>";
-//            }  else {
-//                echo 'no se realizo la compra';
-//            }
+        if ($conexion->query($consulta) === TRUE) {
+            $last_id = $conexion->insert_id;//Obtenemos el ultimo insertado.
+            if (isset($_POST['btnOrden1'])){
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',1)";//Nuevo pedidoPlatillo.
+            }elseif(isset($_POST['btnOrden2'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',2)";//Nuevo pedidoPlatillo
+            }elseif (isset($_POST['btnOrden3'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',3)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden4'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',4)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden5'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',5)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden6'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',6)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden7'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',7)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden8'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',8)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden9'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',9)";//Nuevo pedidoPlatillo.
+            }elseif (isset($_POST['btnOrden10'])) {
+                $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',10)";//Nuevo pedidoPlatillo.
+            }
+            $conexion->query($consulta2);//Crear la consulta.
+            echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
+        } else {
+            echo "Error: " . $consulta . "<br>" . $conexion->error;
         }
-        
-        //Cuando vemos el carrito.
-        if (isset($_POST['btnCarro'])) {
-            //Consulta de platillos.
-        }
+        $conexion->close();
     }
 ?>  
 <!DOCTYPE html>
@@ -81,28 +84,38 @@
          </header>
           <main>
             <section>
-                
                 <div class="contenedorBtnMenu" id="info">
                     <p id="infoCompra">Informacion</p>
-                    <form method="POST">
-                   <center>
-                       <input type="submit" value=" Realizar Compra " name="btnCompra" class="letraForm" onclick="compra()" >
-                   </center>
-                   </form>
-                   <form method="POST">
-                   <center>
-                       <input type="submit" value=" Ver Carrito " name="btnCarro" class="letraForm">
-                   </center>
-                   </form>  
-                    <button id="btnComp">Realizar compra</button>
+                    <center>
+                        <button id="btnCarro"> Carrito </button>
+                        <button id="btnCompra"> Comprar </button>
+                    </center> 
                 </div>
                 
-                <div id="divCompra" class="contenedorBtnMenu serInvisible " >
-                    <!--Meter codigo php-->
+                <div id="divCarro" class="contenedorBtnMenu serInvisible " >
+                    <?php 
+                        $usuario = $_SESSION['usuario'];
+                        $idCliente = $_SESSION['idCliente'];
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $consulta = "SELECT platillo.nombre FROM pedido INNER JOIN "
+                                . "pedidoplatillo on pedido.idPedido=pedidoplatillo.idPedido "
+                                . "INNER JOIN platillo on pedidoplatillo.idPlatillo=platillo.idPlatillo "
+                                . "WHERE pedido.idCliente='$idCliente'";
+                        $resultado = $conexion->query($consulta);
+
+                        if($resultado->num_rows > 0){
+                          echo '<h1>Pedidos realizados: </h1><br>';
+                          for($i = 0; $i < $resultado->num_rows; $i++){
+                              $resultado->data_seek($i);
+                              $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                              echo $i.' .- '. $renglon['nombre'].'<br>';
+                            }
+                        }
+                    ?>
                     <button id="back1"> Cerrar </button>
                 </div>
              
-                <div id="divCarro" class="contenedorBtnMenu serInvisible" >
+                <div id="divCompra" class="contenedorBtnMenu serInvisible" >
                     
                 </div>
                 
@@ -112,8 +125,7 @@
                     <div class="divFoto claseFotoCat foto1" id="foto1"></div>
                     <p>$40</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '1';?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden1" class="letraForm">
                     </form>
                     <button id="ver1">Ver platillo</button>
                 </div>
@@ -123,8 +135,7 @@
                     <div class="divFoto claseFotoCat foto2" id="foto2"></div>
                     <p>$50</p>
                     <form method="POST">
-                        <?php $_SESSION['btn'] = '2'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden2" class="letraForm">
                     </form>
                     <button id="ver2">Ver platillo</button>
                 </div>
@@ -134,8 +145,7 @@
                     <div class="divFoto claseFotoCat foto3" id="foto3"></div>
                     <p>$70</p>
                     <form method="POST">
-                        <?php $_SESSION['btn'] = '3'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden3" class="letraForm">
                     </form>
                     <button id="ver3">Ver platillo</button>
                 </div>
@@ -145,8 +155,7 @@
                     <div class="divFoto claseFotoCat foto4" id="foto4"></div>
                     <p>$100</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '4'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden4" class="letraForm">
                     </form>
                     <button id="ver4">Ver platillo</button>
                 </div>
@@ -156,8 +165,7 @@
                     <div class="divFoto claseFotoCat foto5" id="foto5"></div>
                     <p>$45</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '5'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden5" class="letraForm">
                     </form>
                     <button id="ver5">Ver platillo</button>
                 </div>
@@ -167,8 +175,7 @@
                     <div class="divFoto claseFotoCat foto6" id="foto6"></div>
                     <p>$500</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '6'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden6" class="letraForm">
                     </form>
                     <button id="ver6">Ver platillo</button>
                 </div>
@@ -178,8 +185,7 @@
                     <div class="divFoto claseFotoCat foto7" id="foto7"></div>
                     <p>$15</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '7'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden7" class="letraForm">
                     </form>
                     <button id="ver7">Ver platillo</button>
                 </div>
@@ -189,8 +195,7 @@
                     <div class="divFoto claseFotoCat foto8" id="foto8"></div>
                     <p>$35</p>
                     <form method="POST">
-                        <?php $_SESSION['btn'] = '8'; ?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden8" class="letraForm">
                     </form>
                     <button id="ver8">Ver platillo</button>
                 </div>
@@ -200,8 +205,7 @@
                     <div class="divFoto claseFotoCat foto9" id="foto9"></div>
                     <p>$60</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '9';?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden9" class="letraForm">
                     </form>
                     <button id="ver9">Ver platillo</button>
                 </div>
@@ -211,8 +215,7 @@
                     <div class="divFoto claseFotoCat foto10" id="foto10"></div>
                     <p>$9</p>
                     <form method="POST">
-                        <?php  $_SESSION['btn'] = '10';?>
-                        <input type="submit" value=" Ordenar " name="btnOrden" class="letraForm">
+                        <input type="submit" value=" Ordenar " name="btnOrden10" class="letraForm">
                     </form>
                     <button id="ver10">Ver platillo</button>
                 </div>
@@ -221,8 +224,7 @@
           </main>
           <div class="platillo serInvisible" id="info1">
             <div class="contInfoPlatillo">
-                <div class="Info" id="vi1"><!-- ponerle serinvisible ENUMERARLOS-->
-                    <!--Aqui va a ir el IMAGENES-->
+                <div class="Info" id="vi1">
                     <img class="rece1" src="Plato1.jpg" align="rigth" border="1" alt="" "logo="" css3"="">
                 </div>
                 <div class="Info"> 

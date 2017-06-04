@@ -34,9 +34,9 @@
               </ul>
           </nav>
     </header>
-    </div>
+    
     <main>
-        <div class = "inicioSesion" class="serVisible">
+        <!--<div class = "inicioSesion" class="serVisible">-->
             <div class="divDatos registro">
                 <form method="POST" action="inicioRegistro.php" class="letraForm" id="formReg">
                     <fieldset>
@@ -53,7 +53,8 @@
                    </fieldset> 
                 </form>
             </div>
-        </div>
+        <!--</div>-->
     </main>
+    </div>
 </body>
 </html>

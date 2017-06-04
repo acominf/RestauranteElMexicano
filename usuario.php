@@ -46,7 +46,6 @@
                     <fieldset>
                         <legend>El MEXICANO</legend><br>
                         <center>
-                            <!-- Cambiar le tamaño con jquery -->
                             <input type="submit" name="pedidos" value=" Pedidos " class="letraForm" ><br>
                             <input type="submit" name="reservacion" value=" Reservaciones " class="letraForm" ><br>
                         </center>
@@ -61,72 +60,215 @@
                     
                     $usuario = $_SESSION['usuario'];//Nombre
                     $idCliente = $_SESSION['idCliente'];//Nombre
+                    //Administradores
+                    if ($usuario != "Yahir" AND $usuario != "Rodolfo") {
+                        if(isset($_POST['reservacion'])) {
+                           $conexion = new mysqli('localhost','root','','restaurante');
+                           $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
+                           $resultado = $conexion->query($consulta);
 
-                    if(isset($_POST['reservacion'])) {
-                        $conexion = new mysqli('localhost','root','','restaurante');
-                        $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
-                        $resultado = $conexion->query($consulta);
+                           if($resultado->num_rows > 0){
+                               echo '<h1>Reservaciones realizadas: </h1>';
+                               echo '<table>';
+                               echo '<form method="POST">';
+                               echo '<tr>';
+                                   echo '<td><strong> idReservacion </strong></td>';
+                                   echo '<td><strong> idCliente  </strong></td>';
+                                   echo '<td><strong> Personas  </strong></td>';
+                                   echo '<td><strong> Mesa  </strong></td>';
+                                   echo '<td><strong> Fecha  </strong></td>';
+                                   echo '<td><strong> Hora  </strong></td>';
+                               echo '</tr>';
+                               for($i = 0; $i < $resultado->num_rows; $i++){
+                                   $resultado->data_seek($i);
+                                   $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                                   echo '<tr>';
+                                   echo '<td>'.$renglon['idReservacion'].'</td>';
+                                   echo '<td>'.$renglon['idCliente'].'</td>';
+                                   echo '<td>'.$renglon['numeroPersonas'].'</td>';
+                                   echo '<td>'.$renglon['numMesa'].'</td>';
+                                   echo '<td>'.$renglon['Fecha'].'</td>';
+                                   echo '<td>'.$renglon['Hora'].'</td>';
+                                   echo '<td>  <input type="checkbox" value='.$renglon['idReservacion'].' name="datos4[]"/>'
+                                      . '<label> Cancelar </label><br/>  <td>';                                  
+                                   echo '</tr>';
+                                 }
+                            echo '<input type="submit" name="eliminar4" value=" Cancelar Seleciconados " />';
+                            echo '</form>';                                 
+                               echo '</table>';
+                           }else{
+                               echo "No hay reservaciones";
+                           }
+                       }
 
-                        if($resultado->num_rows > 0){
-                            echo '<h1>Reservaciones realizadas: </h1>';
-                            echo '<table>';
-                            echo '<tr>';
-                                echo '<td><strong> idReservacion </strong></td>';
-                                echo '<td><strong> idCliente  </strong></td>';
-                                echo '<td><strong> Personas  </strong></td>';
-                                echo '<td><strong> Mesa  </strong></td>';
-                                echo '<td><strong> Fecha  </strong></td>';
-                                echo '<td><strong> Hora  </strong></td>';
-                            echo '</tr>';
-                            for($i = 0; $i < $resultado->num_rows; $i++){
-                                $resultado->data_seek($i);
-                                $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
-                                echo '<tr>';
-                                echo '<td>'.$renglon['idReservacion'].'</td>';
-                                echo '<td>'.$renglon['idCliente'].'</td>';
-                                echo '<td>'.$renglon['numeroPersonas'].'</td>';
-                                echo '<td>'.$renglon['numMesa'].'</td>';
-                                echo '<td>'.$renglon['Fecha'].'</td>';
-                                echo '<td>'.$renglon['Hora'].'</td>';
-                                echo '</tr>';
-                              }
+                       if (isset($_POST['pedidos'])) {
+                           $conexion = new mysqli('localhost','root','','restaurante');
+                           $consulta = "SELECT cliente.idCliente , Nombre , Direccion , pedido.idPedido "
+                                       . "FROM cliente INNER JOIN pedido on cliente.idCliente=pedido.idCliente "
+                                       . "WHERE cliente.idCliente = "
+                                       . "'$idCliente'";
+                           $resultado = $conexion->query($consulta);
+
+                           if($resultado->num_rows > 0){
+                             echo '<h1>Pedidos realizados: </h1>';
+                             echo '<table>';
+                             echo '<form method="POST">';
+                             echo '<tr>';
+                                 echo '<td><strong> idCliente  </strong></td>';
+                                 echo '<td><strong> Nombre </strong></td>';
+                                 echo '<td><strong> Direccion </strong></td>';
+                                 echo '<td><strong> Pedido </strong></td>';
+                             echo '</tr>';
+                             for($i = 0; $i < $resultado->num_rows; $i++){
+                                 $resultado->data_seek($i);
+                                 $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                                 echo '<tr>';
+                                 echo '<td>'.$renglon['idCliente'].'</td>';
+                                 echo '<td>'.$renglon['Nombre'].'</td>';
+                                 echo '<td>'.$renglon['Direccion'].'</td>';
+                                 echo '<td>'.$renglon['idPedido'].'</td>';
+                                 echo '<td>  <input type="checkbox" value='.$renglon['idPedido'].' name="datos3[]"/>'
+                                      . '<label> Cancelar </label><br/>  <td>'; 
+                                 echo '</tr>';
+                               }
+                            echo '<input type="submit" name="eliminar3" value=" Cancelar Seleciconados " />';
+                            echo '</form>';
                             echo '</table>';
-                        }else{
-                            echo "<script>alert('No hay reservaciones.')</script>";
+                           }else{
+                               echo "No hay pedidos.";
+                           }
+                       }                       
+                    }else{
+                           if(isset($_POST['reservacion'])) {
+                            $conexion = new mysqli('localhost','root','','restaurante');
+                            $consulta = "SELECT * FROM reservacion";
+                            $resultado = $conexion->query($consulta);
+
+                            if($resultado->num_rows > 0){
+                                echo '<h1>Reservaciones realizadas: </h1>';
+                                echo '<table>';
+                                echo '<form method="POST">';
+                                echo '<tr>';
+                                    echo '<td><strong> Reservacion </strong></td>';
+                                    echo '<td><strong> idCliente  </strong></td>';
+                                    echo '<td><strong> Personas  </strong></td>';
+                                    echo '<td><strong> Mesa  </strong></td>';
+                                    echo '<td><strong> Fecha  </strong></td>';
+                                    echo '<td><strong> Hora  </strong></td>';
+                                echo '</tr>';
+                                for($i = 0; $i < $resultado->num_rows; $i++){
+                                    $resultado->data_seek($i);
+                                    $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                                    echo '<tr>';
+                                    echo '<td>'.$renglon['idReservacion'].'</td>';
+                                    echo '<td>'.$renglon['idCliente'].'</td>';
+                                    echo '<td>'.$renglon['numeroPersonas'].'</td>';
+                                    echo '<td>'.$renglon['numMesa'].'</td>';
+                                    echo '<td>'.$renglon['Fecha'].'</td>';
+                                    echo '<td>'.$renglon['Hora'].'</td>';
+                                    echo '<td>  <input type="checkbox" value='.$renglon['idReservacion'].' name="datos2[]"/>'
+                                      . '<label> Eliminar </label><br/>  <td>';                                    
+                                    echo '</tr>';
+                                  }
+                                echo '<input type="submit" name="eliminar2" value=" Eliminar Seleciconados " />';
+                                echo '</form>';
+                                echo '</table>';
+                            }else{
+                                echo "<script>alert('No hay reservaciones.')</script>";
+                            }
+                       }
+
+                       if (isset($_POST['pedidos'])) {
+                           $conexion = new mysqli('localhost','root','','restaurante');
+                           $consulta = "SELECT * FROM pedido";
+                           $resultado = $conexion->query($consulta);
+
+                           if($resultado->num_rows > 0){
+                             echo '<h1>Pedidos realizados: </h1>';
+                             echo '<table>';
+                             echo '<form method="POST">';
+                             echo '<tr>';
+                                 echo '<td><strong> idCliente  </strong></td>';
+                                 echo '<td><strong> Pedido </strong></td>';
+                             echo '</tr>';
+                             echo '<form>';
+                             for($i = 0; $i < $resultado->num_rows; $i++){
+                                 $resultado->data_seek($i);
+                                 $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
+                                 echo '<tr>';
+                                 echo '<td>'.$renglon['idCliente'].'</td>';
+                                 echo '<td>'.$renglon['idPedido'].'</td>';
+                                 echo '<td>  <input type="checkbox" value='.$renglon['idPedido'].' name="datos[]"/>'
+                                      . '<label> Eliminar </label><br/>  <td>';
+                                 echo '</tr>';
+                               }
+                                echo '<input type="submit" name="eliminar1" value=" Eliminar Seleciconados " />';
+                                echo '</form>';
+                                echo '</table>';
+                           }else{
+                               echo "<script>alert('No hay reservaciones.')</script>";
+                           }
+                       }  
+                    }
+                }
+            ?>
+            <?php 
+                //Pedidos
+                if (isset($_POST['eliminar1'])){
+                    if (is_array($_POST['datos'])){
+                        $tamArr = count($_POST['datos']);
+                        $limite = 0;
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        foreach ($_POST['datos'] as $key => $value){
+                            if ($limite != $tamArr) {
+                                $consulta = "DELETE FROM pedido WHERE idPedido ='$value'";//Eliminar
+                                $resultado = $conexion->query($consulta);
+                            }
+                        $limite++;
                         }
                     }
-                    
-                    if (isset($_POST['pedidos'])) {
+                }
+                //Reservaciones
+                if (isset($_POST['eliminar2'])){
+                    if (is_array($_POST['datos2'])){
+                        $tamArr = count($_POST['datos2']);
+                        $limite = 0;
                         $conexion = new mysqli('localhost','root','','restaurante');
-                        //$consulta = "SELECT * FROM pedido WHERE idCliente='$idCliente'";
-                        $consulta = "SELECT cliente.idCliente , Nombre , Direccion , pedido.idPedido "
-                                    . "FROM cliente INNER JOIN pedido on cliente.idCliente=pedido.idCliente "
-                                    . "WHERE cliente.idCliente = "
-                                    . "'$idCliente'";
-                        $resultado = $conexion->query($consulta);
-
-                        if($resultado->num_rows > 0){
-                          echo '<h1>Pedidos realizados: </h1>';
-                          echo '<table>';
-                          echo '<tr>';
-                              echo '<td><strong> idCliente  </strong></td>';
-                              echo '<td><strong> Nombre </strong></td>';
-                              echo '<td><strong> Direccion </strong></td>';
-                              echo '<td><strong> Pedido </strong></td>';
-                          echo '</tr>';
-                          for($i = 0; $i < $resultado->num_rows; $i++){
-                              $resultado->data_seek($i);
-                              $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
-                              echo '<tr>';
-                              echo '<td>'.$renglon['idCliente'].'</td>';
-                              echo '<td>'.$renglon['Nombre'].'</td>';
-                              echo '<td>'.$renglon['Direccion'].'</td>';
-                              echo '<td>'.$renglon['idPedido'].'</td>';
-                              echo '</tr>';
+                        foreach ($_POST['datos2'] as $key => $value){
+                            if ($limite != $tamArr) {
+                                $consulta = "DELETE FROM reservacion WHERE idReservacion ='$value'";//Eliminar
+                                $resultado = $conexion->query($consulta);
                             }
-                          echo '</table>';
-                        }else{
-                            echo "<script>alert('No hay reservaciones.')</script>";
+                        $limite++;
+                        }
+                    }
+                }
+                if (isset($_POST['eliminar3'])){
+                    if (is_array($_POST['datos3'])){
+                        $tamArr = count($_POST['datos3']);
+                        $limite = 0;
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        foreach ($_POST['datos3'] as $key => $value){
+                            if ($limite != $tamArr) {
+                                $consulta = "DELETE FROM pedido WHERE idPedido ='$value'";//Eliminar
+                                $resultado = $conexion->query($consulta);
+                            }
+                        $limite++;
+                        }
+                    }
+                }
+                
+                if (isset($_POST['eliminar4'])){
+                    if (is_array($_POST['datos4'])){
+                        $tamArr = count($_POST['datos4']);
+                        $limite = 0;
+                        $conexion = new mysqli('localhost','root','','restaurante');
+                        foreach ($_POST['datos4'] as $key => $value){
+                            if ($limite != $tamArr) {
+                                $consulta = "DELETE FROM reservacion WHERE idReservacion ='$value'";//Eliminar
+                                $resultado = $conexion->query($consulta);
+                            }
+                        $limite++;
                         }
                     }
                 }
@@ -135,11 +277,5 @@
     </main>
   </div>
 </body>
-                <!--<form method="POST" >
-                    <center>
-                        <input type="submit" name="ver" class="btnCentrado" value="VerReserv"><br><br>
-                        Fecha: <input type="date" name="fecha" value="dd/mmm/aaaa"/><br><br>
-                        <input type="submit" value= "Cancelar" class="btnReserva">
-                    </center>
-                </form> -->
 </html>
+
