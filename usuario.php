@@ -72,24 +72,25 @@
                                echo '<table>';
                                echo '<form method="POST">';
                                echo '<tr>';
-                                   echo '<td><strong> idReservacion </strong></td>';
-                                   echo '<td><strong> idCliente  </strong></td>';
-                                   echo '<td><strong> Personas  </strong></td>';
-                                   echo '<td><strong> Mesa  </strong></td>';
-                                   echo '<td><strong> Fecha  </strong></td>';
-                                   echo '<td><strong> Hora  </strong></td>';
+                               	//<td class=\"cellgreen\">".$datares['Numero_Hab']."</td>/
+                                   echo '<td class="cellblueF"><strong> idReservacion </strong></td>';
+                                   echo '<td class="cellblueF"><strong> idCliente  </strong></td>';
+                                   echo '<td class="cellblueF"><strong> Personas  </strong></td>';
+                                   echo '<td class="cellblueF"><strong> Mesa  </strong></td>';
+                                   echo '<td class="cellblueF"><strong> Fecha  </strong></td>';
+                                   echo '<td class="cellblueF"><strong> Hora  </strong></td>';
                                echo '</tr>';
                                for($i = 0; $i < $resultado->num_rows; $i++){
                                    $resultado->data_seek($i);
                                    $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
                                    echo '<tr>';
-                                   echo '<td>'.$renglon['idReservacion'].'</td>';
-                                   echo '<td>'.$renglon['idCliente'].'</td>';
-                                   echo '<td>'.$renglon['numeroPersonas'].'</td>';
-                                   echo '<td>'.$renglon['numMesa'].'</td>';
-                                   echo '<td>'.$renglon['Fecha'].'</td>';
-                                   echo '<td>'.$renglon['Hora'].'</td>';
-                                   echo '<td>  <input type="checkbox" value='.$renglon['idReservacion'].' name="datos4[]"/>'
+                                   echo '<td class="cellblue">'.$renglon['idReservacion'].'</td>';
+                                   echo '<td class="cellblue">'.$renglon['idCliente'].'</td>';
+                                   echo '<td class="cellblue">'.$renglon['numeroPersonas'].'</td>';
+                                   echo '<td class="cellblue">'.$renglon['numMesa'].'</td>';
+                                   echo '<td class="cellblue">'.$renglon['Fecha'].'</td>';
+                                   echo '<td class="cellblue">'.$renglon['Hora'].'</td>';
+                                   echo '<td class="cellblue">  <input type="checkbox" value='.$renglon['idReservacion'].' name="datos4[]"/>'
                                       . '<label> Cancelar </label><br/>  <td>';                                  
                                    echo '</tr>';
                                  }
@@ -114,20 +115,20 @@
                              echo '<table>';
                              echo '<form method="POST">';
                              echo '<tr>';
-                                 echo '<td><strong> idCliente  </strong></td>';
-                                 echo '<td><strong> Nombre </strong></td>';
-                                 echo '<td><strong> Direccion </strong></td>';
-                                 echo '<td><strong> Pedido </strong></td>';
+                                 echo '<td class="cellRed"><strong> idCliente  </strong></td>';
+                                 echo '<td class="cellRed"><strong> Nombre </strong></td>';
+                                 echo '<td class="cellRed"><strong> Direccion </strong></td>';
+                                 echo '<td class="cellRed"><strong> Pedido </strong></td>';
                              echo '</tr>';
                              for($i = 0; $i < $resultado->num_rows; $i++){
                                  $resultado->data_seek($i);
                                  $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
                                  echo '<tr>';
-                                 echo '<td>'.$renglon['idCliente'].'</td>';
-                                 echo '<td>'.$renglon['Nombre'].'</td>';
-                                 echo '<td>'.$renglon['Direccion'].'</td>';
-                                 echo '<td>'.$renglon['idPedido'].'</td>';
-                                 echo '<td>  <input type="checkbox" value='.$renglon['idPedido'].' name="datos3[]"/>'
+                                 echo '<td class="cellOrange">'.$renglon['idCliente'].'</td>';
+                                 echo '<td class="cellOrange">'.$renglon['Nombre'].'</td>';
+                                 echo '<td class="cellOrange">'.$renglon['Direccion'].'</td>';
+                                 echo '<td class="cellOrange">'.$renglon['idPedido'].'</td>';
+                                 echo '<td class="cellOrange">  <input type="checkbox" value='.$renglon['idPedido'].' name="datos3[]"/>'
                                       . '<label> Cancelar </label><br/>  <td>'; 
                                  echo '</tr>';
                                }
@@ -149,23 +150,23 @@
                                 echo '<table>';
                                 echo '<form method="POST">';
                                 echo '<tr>';
-                                    echo '<td><strong> Reservacion </strong></td>';
-                                    echo '<td><strong> idCliente  </strong></td>';
-                                    echo '<td><strong> Personas  </strong></td>';
-                                    echo '<td><strong> Mesa  </strong></td>';
-                                    echo '<td><strong> Fecha  </strong></td>';
-                                    echo '<td><strong> Hora  </strong></td>';
+                                    echo '<td class="cellGreen"><strong> Reservacion </strong></td>';
+                                    echo '<td class="cellGreen"><strong> idCliente  </strong></td>';
+                                    echo '<td class="cellGreen"><strong> Personas  </strong></td>';
+                                    echo '<td class="cellGreen"><strong> Mesa  </strong></td>';
+                                    echo '<td class="cellGreen"><strong> Fecha  </strong></td>';
+                                    echo '<td class="cellGreen"><strong> Hora  </strong></td>';
                                 echo '</tr>';
                                 for($i = 0; $i < $resultado->num_rows; $i++){
                                     $resultado->data_seek($i);
                                     $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
                                     echo '<tr>';
-                                    echo '<td>'.$renglon['idReservacion'].'</td>';
-                                    echo '<td>'.$renglon['idCliente'].'</td>';
-                                    echo '<td>'.$renglon['numeroPersonas'].'</td>';
-                                    echo '<td>'.$renglon['numMesa'].'</td>';
-                                    echo '<td>'.$renglon['Fecha'].'</td>';
-                                    echo '<td>'.$renglon['Hora'].'</td>';
+                                    echo '<td class="cellYello">'.$renglon['idReservacion'].'</td>';
+                                    echo '<td class="cellYellow">'.$renglon['idCliente'].'</td>';
+                                    echo '<td class="cellYellow">'.$renglon['numeroPersonas'].'</td>';
+                                    echo '<td class="cellYellow">'.$renglon['numMesa'].'</td>';
+                                    echo '<td class="cellYellow">'.$renglon['Fecha'].'</td>';
+                                    echo '<td class="cellYellow">'.$renglon['Hora'].'</td>';
                                     echo '<td>  <input type="checkbox" value='.$renglon['idReservacion'].' name="datos2[]"/>'
                                       . '<label> Eliminar </label><br/>  <td>';                                    
                                     echo '</tr>';
@@ -188,17 +189,17 @@
                              echo '<table>';
                              echo '<form method="POST">';
                              echo '<tr>';
-                                 echo '<td><strong> idCliente  </strong></td>';
-                                 echo '<td><strong> Pedido </strong></td>';
+                                 echo '<td class="cellblue"><strong> idCliente  </strong></td>';
+                                 echo '<td class="cellblue"><strong> Pedido </strong></td>';
                              echo '</tr>';
                              echo '<form>';
                              for($i = 0; $i < $resultado->num_rows; $i++){
                                  $resultado->data_seek($i);
                                  $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
                                  echo '<tr>';
-                                 echo '<td>'.$renglon['idCliente'].'</td>';
-                                 echo '<td>'.$renglon['idPedido'].'</td>';
-                                 echo '<td>  <input type="checkbox" value='.$renglon['idPedido'].' name="datos[]"/>'
+                                 echo '<td class="cellOrange">'.$renglon['idCliente'].'</td>';
+                                 echo '<td class="cellOrange">'.$renglon['idPedido'].'</td>';
+                                 echo '<td class="cellOrange">  <input type="checkbox" value='.$renglon['idPedido'].' name="datos[]"/>'
                                       . '<label> Eliminar </label><br/>  <td>';
                                  echo '</tr>';
                                }

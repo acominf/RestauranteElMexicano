@@ -70,6 +70,9 @@
           <div class="caja caja-tam49" id="catalogo">
               <a href="menu.php"><img src="imagenes/catalogoImagen.jpg" alt="Catalogo"></a>
           </div>
+          <div>
+              <a href="acercaDe.php"><img class="acer"src="imagenes/Servicio1.jpg" alt="Catalogo"></a>
+          </div>
         </div>
       </main>
   </div>

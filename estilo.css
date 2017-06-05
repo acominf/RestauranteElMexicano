@@ -121,6 +121,12 @@ header nav ul li a:hover {
 	margin-left: 5px;
 	/*float: left;*/
 }
+.acer{
+	width: 100%;
+	height: 500px;
+   /* height:1400%;
+	/*float: left;*/
+}
 
 .caja-tam49 p {
 	padding: 5px;
@@ -598,4 +604,53 @@ main{
 
 .tablaReserv td {
     border: black 3px solid;
+}
+
+.cellblueF
+{
+	background-color:blue;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.cellblue
+{
+	background-color:dodgerblue;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.cellRed
+{
+	background-color:sandybrown;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+
+.cellOrange
+{
+	background-color:red;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.cellGreen
+{
+	background-color:seagreen;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
+}
+
+.cellYellow
+{
+	background-color:lightgoldenrodyellow;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 18px;
+	text-align: center;
 }
