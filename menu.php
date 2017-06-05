@@ -17,27 +17,43 @@
             $last_id = $conexion->insert_id;//Obtenemos el ultimo insertado.
             if (isset($_POST['btnOrden1'])){
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',1)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
             }elseif(isset($_POST['btnOrden2'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',2)";//Nuevo pedidoPlatillo
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden3'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',3)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden4'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',4)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden5'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',5)";//Nuevo pedidoPlatillo.
             }elseif (isset($_POST['btnOrden6'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',6)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden7'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',7)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden8'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',8)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden9'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',9)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }elseif (isset($_POST['btnOrden10'])) {
                 $consulta2 = "INSERT INTO pedidoplatillo values (null,'$last_id',10)";//Nuevo pedidoPlatillo.
+                $conexion->query($consulta2);//Crear la consulta.
+                echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";                
             }
-            $conexion->query($consulta2);//Crear la consulta.
-            echo "<script>alert('Su platillo ha sido agregado con éxito!!!')</script>";
         } else {
             echo "Error: " . $consulta . "<br>" . $conexion->error;
         }
@@ -105,13 +121,41 @@
 
                         if($resultado->num_rows > 0){
                           echo '<h1>Pedidos realizados: </h1><br>';
+                          echo '<form method="POST">';//AGREGADO
                           for($i = 0; $i < $resultado->num_rows; $i++){
                               $resultado->data_seek($i);
                               $renglon = $resultado->fetch_array(MYSQLI_ASSOC);
-                              echo $i.' .- '. $renglon['nombre'].'<br>';
+                              echo $i.'.-'. $renglon['nombre'];
+                              echo '<input type="checkbox" value='.$renglon['nombre'].'name="datos5[]"/>'//A
+                              . '<label> Cancelar </label><br/>';//A
+                            }
+                        echo '<input type="submit" name="eliminar" value=" Eliminar Seleccionados"/>';//A
+                        echo '</form>'; //A
+                        }
+
+                    ?>
+                    
+                  <?php  
+                    //Eliminar Pedidos
+                    $usuario = $_SESSION['usuario'];
+                    $idCliente = $_SESSION['idCliente'];
+                    
+                    if (isset($_POST['eliminar'])){
+                        if (is_array($_POST['datos5'])){
+                            $tamArr = count($_POST['datos5']);
+                            $limite = 0;
+                            $conexion = new mysqli('localhost','root','','restaurante');
+                            foreach ($_POST['datos5'] as $key => $value){
+                                if ($limite != $tamArr) {
+                                    $consulta = "DELETE FROM pedido WHERE idPedido ='$value' AND"
+                                            . "idCliente ='$idCliente'";//Eliminar
+                                    $resultado = $conexion->query($consulta);
+                                }
+                            $limite++;
                             }
                         }
-                    ?>
+                    }
+                ?>
                     <button id="back1"> Cerrar </button>
                 </div>
              
