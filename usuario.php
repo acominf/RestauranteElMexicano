@@ -63,7 +63,8 @@
                     //Administradores
                     if ($usuario != "Yahir" AND $usuario != "Rodolfo") {
                         if(isset($_POST['reservacion'])) {
-                           $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                          $conexion = new mysqli('localhost','root','','restaurante');                            
                            $consulta = "SELECT * FROM reservacion WHERE idCliente='$idCliente'";
                            $resultado = $conexion->query($consulta);
 
@@ -103,7 +104,8 @@
                        }
 
                        if (isset($_POST['pedidos'])) {
-                           $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//        $conexion = new mysqli('localhost','root','','restaurante');                           
                            $consulta = "SELECT cliente.idCliente , Nombre , Direccion , pedido.idPedido "
                                        . "FROM cliente INNER JOIN pedido on cliente.idCliente=pedido.idCliente "
                                        . "WHERE cliente.idCliente = "
@@ -141,7 +143,8 @@
                        }                       
                     }else{
                            if(isset($_POST['reservacion'])) {
-                            $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                                       $conexion = new mysqli('localhost','root','','restaurante');
                             $consulta = "SELECT * FROM reservacion";
                             $resultado = $conexion->query($consulta);
 
@@ -180,7 +183,8 @@
                        }
 
                        if (isset($_POST['pedidos'])) {
-                           $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                      $conexion = new mysqli('localhost','root','','restaurante');                           
                            $consulta = "SELECT * FROM pedido";
                            $resultado = $conexion->query($consulta);
 
@@ -219,7 +223,8 @@
                     if (is_array($_POST['datos'])){
                         $tamArr = count($_POST['datos']);
                         $limite = 0;
-                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                                $conexion = new mysqli('localhost','root','','restaurante');
                         foreach ($_POST['datos'] as $key => $value){
                             if ($limite != $tamArr) {
                                 $consulta = "DELETE FROM pedido WHERE idPedido ='$value'";//Eliminar
@@ -234,7 +239,8 @@
                     if (is_array($_POST['datos2'])){
                         $tamArr = count($_POST['datos2']);
                         $limite = 0;
-                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                                $conexion = new mysqli('localhost','root','','restaurante');
                         foreach ($_POST['datos2'] as $key => $value){
                             if ($limite != $tamArr) {
                                 $consulta = "DELETE FROM reservacion WHERE idReservacion ='$value'";//Eliminar
@@ -248,7 +254,8 @@
                     if (is_array($_POST['datos3'])){
                         $tamArr = count($_POST['datos3']);
                         $limite = 0;
-                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                                $conexion = new mysqli('localhost','root','','restaurante');
                         foreach ($_POST['datos3'] as $key => $value){
                             if ($limite != $tamArr) {
                                 $consulta = "DELETE FROM pedido WHERE idPedido ='$value'";//Eliminar
@@ -263,7 +270,8 @@
                     if (is_array($_POST['datos4'])){
                         $tamArr = count($_POST['datos4']);
                         $limite = 0;
-                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//                                $conexion = new mysqli('localhost','root','','restaurante');
                         foreach ($_POST['datos4'] as $key => $value){
                             if ($limite != $tamArr) {
                                 $consulta = "DELETE FROM reservacion WHERE idReservacion ='$value'";//Eliminar

@@ -23,12 +23,12 @@
                 <li class="separado"><a href="acercaDe.php">A cerca de..</a></li>
                 <?php 
                 if(!isset($_SESSION['usuario'])) { //Si no esta iniciada la sesion
-                    echo '<li><a href="index1.php"><u>Inciar sesión</u></a></li>';
+                    echo '<li><a href="index1.php"><u>Inciar sesionn</u></a></li>';
                     echo '<li><a href="registro.php"><u>Registrase</u></a></li>';
                 }else {
                   $usuario = $_SESSION['usuario'];
                     echo '<li><a href="usuario.php"><u>'.$usuario.'</u></a></li>';
-                    echo '<li><a href="cerrar.php"><u>Cerrar sesión</u></a></li>';
+                    echo '<li><a href="cerrar.php"><u>Cerrar sesion</u></a></li>';
                 }
                 ?>
               </ul>
@@ -51,8 +51,8 @@
             </div>
                 <?php  session_start();
                     if($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-                        $conexion = new mysqli('localhost','root','','restaurante');
+//        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
                         $usuario = $conexion->real_escape_string($_POST['usuario']);//Nombre
                         $contrasenna = $conexion->real_escape_string($_POST['contrasenna']);//contrasenna
                         $contrasena = hash('md5','$o#'.$contrasenna.'@8!');

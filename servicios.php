@@ -2,7 +2,8 @@
 
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-      $conexion = new mysqli('localhost','root','','restaurante');//Iniciamos la conexion.
+      $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
+//        $conexion = new mysqli('localhost','root','','restaurante');      
       $numPersonas = $_POST['personas'];//Reunimos la informacion
       $fecha = $_POST['fecha'];
       $hora = $_POST['hora'];
@@ -139,7 +140,7 @@
         <div class="cajaServ serInvisible" id="contServ5">
         <!--Informacion para el formulario de inicio de sesion-->
         <div class = "inicioSesion">
-          <h1>Reservación</h1>
+          <h1>Reservacion</h1>
             <div class="divDatos">
                 <form method="POST">
                     Usuario: <input type="text" name="usuario"><br><br>  

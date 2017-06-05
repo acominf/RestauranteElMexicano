@@ -10,7 +10,8 @@
         $idCliente = $_SESSION['idCliente'];
         
         //Cuando elegimos un platillo.
-        $conexion = new mysqli('localhost','root','','restaurante');
+//        $conexion = new mysqli('localhost','root','','restaurante');
+        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
         $consulta = "INSERT INTO pedido values (null,0,$idCliente)";
 
         if ($conexion->query($consulta) === TRUE) {
@@ -104,7 +105,6 @@
                     <p id="infoCompra">Informacion</p>
                     <center>
                         <button id="btnCarro"> Carrito </button>
-                        <button id="btnCompra"> Comprar </button>
                     </center> 
                 </div>
                 
@@ -112,7 +112,7 @@
                     <?php 
                         $usuario = $_SESSION['usuario'];
                         $idCliente = $_SESSION['idCliente'];
-                        $conexion = new mysqli('localhost','root','','restaurante');
+                        $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
                         $consulta = "SELECT platillo.nombre FROM pedido INNER JOIN "
                                 . "pedidoplatillo on pedido.idPedido=pedidoplatillo.idPedido "
                                 . "INNER JOIN platillo on pedidoplatillo.idPlatillo=platillo.idPlatillo "
@@ -132,7 +132,7 @@
                         echo '<input type="submit" name="eliminar" value=" Eliminar Seleccionados"/>';//A
                         echo '</form>'; //A
                         }
-
+                        
                     ?>
                     
                   <?php  
@@ -144,7 +144,7 @@
                         if (is_array($_POST['platillos'])) {
                             $tamArr = count($_POST['platillos']);
                             $limite = 0;
-                            $conexion = new mysqli('localhost','root','','restaurante');
+                            $conexion = new mysqli('localhost','restaura','uch49a','restaurante');
                             foreach ($_POST['datos5'] as $key => $value){
                                 if ($limite != $tamArr) {
                                     $consulta = "DELETE FROM pedido WHERE idPedido ='$value' AND"
