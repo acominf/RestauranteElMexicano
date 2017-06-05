@@ -1,5 +1,5 @@
 <?php session_start();
-    
+
     if(!isset($_SESSION['usuario'])){
         header('Location: index1.php');
     }
@@ -141,8 +141,8 @@
                     $idCliente = $_SESSION['idCliente'];
                     
                     if (isset($_POST['eliminar'])){
-                        if (is_array($_POST['datos5'])){
-                            $tamArr = count($_POST['datos5']);
+                        if (is_array($_POST['platillos'])) {
+                            $tamArr = count($_POST['platillos']);
                             $limite = 0;
                             $conexion = new mysqli('localhost','root','','restaurante');
                             foreach ($_POST['datos5'] as $key => $value){
