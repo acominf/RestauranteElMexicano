@@ -26,12 +26,11 @@ La descripción de la funcionalidad 2 es, que el cliente podra haacer reservacio
 ### Diagrama Relacional Base de Datos.
 ![Diagrama Relacional](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/Diagrama%20Relacional.png)
 
-###Youtube.
+### Youtube
 <iframe width="560" height="315" src="https://www.youtube.com/embed/9Gjwq93GXtM" frameborder="0" allowfullscreen></iframe>
 
 ### Link al Proyecto.
-[Aplicacion Página]()
-http://148.224.194.33/restaura/
+[Aplicacion Página](http://148.224.194.33/restaura/)
 
 ### Sección Principal.
 ![Ventana Principal](https://raw.githubusercontent.com/acominf/RestauranteElMexicano/master/paginaP1.png)
